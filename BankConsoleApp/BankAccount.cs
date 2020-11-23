@@ -8,6 +8,7 @@ namespace BankConsoleApp
 {
     public class BankAccount
     {
+        public virtual void PerformMonthEndTransactions() { }
         private static int accountNumberSeed = 1234567890;
         public string Number { get; }
         public string Owner { get; set; }
@@ -72,6 +73,10 @@ namespace BankConsoleApp
             var withdrawal = new Transaction(-amount, date, note);
             allTransactions.Add(withdrawal);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetAccountHistory()
         {
             var report = new StringBuilder();
