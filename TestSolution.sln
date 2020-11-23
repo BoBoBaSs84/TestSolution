@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListTutorial", "List-Tutori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankConsoleApp", "BankConsoleApp\BankConsoleApp.csproj", "{7D101B8E-F57D-4B2A-8F99-ACEFE45D16D8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7A6431BD-A50C-42D0-80C1-54DAEB8C30B0}"
+	ProjectSection(SolutionItems) = preProject
+		C#-Programmierhandbuch.pdf = C#-Programmierhandbuch.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
