@@ -13,8 +13,10 @@ namespace BankConsoleApp
             Console.WriteLine(account.Balance); 
             account.MakeDeposit(100, DateTime.Now, "Friend paid me back"); 
             Console.WriteLine(account.Balance);
+            account.MakeDeposit(351, DateTime.Now, null);
+            Console.WriteLine(account.GetAccountHistory());
             // Test that the initial balances must be positive. 
-            try 
+            try
             {    
                 var invalidAccount = new BankAccount("invalid", -55); 
             } 
