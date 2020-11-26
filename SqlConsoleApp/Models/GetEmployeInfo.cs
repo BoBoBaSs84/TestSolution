@@ -6,26 +6,26 @@ namespace SqlConsoleApp.SqlContext.Models
 {
     public partial class GetEmployeInfo
     {
-        public string PeopleName { get; set; }
-        public string PeopleSurname { get; set; }
-        public string Gid { get; set; }
-        public string Mail { get; set; }
-        public string Telephone { get; set; }
-        public string NameShortPhone { get; set; }
-        public string Organisation { get; set; }
-        public string Scdcompany { get; set; }
-        public bool? IsExtern { get; set; }
-        public bool? IsHead { get; set; }
-        public int? IdMitarbeiter { get; set; }
-        public int? IdOrganisation { get; set; }
-        public double? OverHours { get; set; }
-        public int? AbsenceDays { get; set; }
-        public int? MissingPresenceDays { get; set; }
-        public double? WeeklyWorkingHours { get; set; }
-        public int? AvailableVacationDays { get; set; }
-        public int? PlannedVacationDays { get; set; }
-        public int? VacationDays { get; set; }
-        public int? ShortTimeDays { get; set; }
-        public int? SicknessDays { get; set; }
+        public string PeopleName { get; }
+        public string PeopleSurname { get; }
+        public string Gid { get; }
+        public string Mail { get; }
+        public string Telephone { get; }
+        public string NameShortPhone { get; }
+        public string Organisation { get; }
+        public string Scdcompany { get; }
+        public bool? IsExtern { get; }
+        public bool? IsHead { get; }
+        public int? IdMitarbeiter { get; }
+        public int? IdOrganisation { get; }
+        public double? OverHours { get; }
+        public int? AbsenceDays { get; }
+        public int? MissingPresenceDays { get; }
+        public double? WeeklyWorkingHours { get; }
+        public int? AvailableVacationDays { get; }
+        public int? PlannedVacationDays { get; }
+        public int? VacationDays { get; }
+        public int? ShortTimeDays { get; }
+        public int? SicknessDays { get; }
     }
 }
