@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SqlConsoleApp
 {
@@ -6,7 +7,16 @@ namespace SqlConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            #region LoadingAllData
+            using (var context = new SqlContext.Data.SqlContext())
+            {
+                var gei = context.GetEmployeInfo.ToList();
+                foreach (var item in gei)
+                {
+                    Console.WriteLine($"{item.NameShortPhone}");
+                }
+            }
+            #endregion
         }
     }
 }
