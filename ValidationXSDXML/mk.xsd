@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+<xs:schema id="mkSchema" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="item" nillable="true">
     <xs:complexType>
-      <xs:simpleContent msdata:ColumnName="item_Text" msdata:Ordinal="6">
+      <xs:simpleContent>
         <xs:extension base="xs:string">
           <xs:attribute name="idMode" use="required">
             <xs:simpleType>
@@ -95,14 +95,6 @@
           <xs:restriction base="xs:decimal"/>
         </xs:simpleType>
       </xs:attribute>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
-    <xs:complexType>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="item" />
-        <xs:element ref="mk" />
-      </xs:choice>
     </xs:complexType>
   </xs:element>
 </xs:schema>

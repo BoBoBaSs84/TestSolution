@@ -139,7 +139,6 @@
     <item idMode="1" qty="1" key="S5.SON9" singleTime="0.75" setupTime="0.9" calcTime="0.75">Montageplatine montieren</item>
   </KalkulationSchrank>
   <KalkulationKasten>
-	<item idMode="1" qty="1" key="S5.SON9" singleTime="0.75" setupTime="0.9" calcTime="0.75">Montageplatine montieren</item>
   </KalkulationKasten>
   <KalkulationPult>
     <item idMode="2" qty="1" key="P1.0" singleTime="0" setupTime="1.6" calcTime="0">blaue Wagen vorbereiten</item>
