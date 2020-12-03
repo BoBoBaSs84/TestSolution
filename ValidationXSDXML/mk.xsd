@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="item" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent msdata:ColumnName="item_Text" msdata:Ordinal="6">
+        <xs:extension base="xs:string">
+          <xs:attribute name="idMode" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:enumeration value="1"/>
+                <xs:enumeration value="2"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="qty" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:positiveInteger"/>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="key" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="15"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="singleTime" type="xs:float" use="optional"/>
+          <xs:attribute name="setupTime" type="xs:float" use="optional"/>
+          <xs:attribute name="calcTime" type="xs:float" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="KalkulationSchrank" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="item" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KalkulationKasten" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="item" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KalkulationPult" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="item" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10"></xs:length>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="ppnr" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="12"></xs:length>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="sd" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10"></xs:length>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="team" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="100"></xs:length>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="amount" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:positiveInteger"/>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="quantitativeFactor" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal"/>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="item" />
+        <xs:element ref="mk" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

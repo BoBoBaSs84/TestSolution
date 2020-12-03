@@ -1,0 +1,257 @@
+<mk version="2.00" ppnr="102865640" sd="200419861" team="M62" amount="1" quantitativeFactor="1">
+  <KalkulationSchrank>
+    <item idMode="2" qty="1" key="S1.1.2" singleTime="12.1" setupTime="3.6" calcTime="12.1">Schrank vorbereiten Schrankbreite = 800 mm</item>
+    <item idMode="2" qty="1" key="S1.1.2M" singleTime="3.45" setupTime="0" calcTime="3.45">darin Anzahl Mopla gesamt</item>
+    <item idMode="2" qty="2" key="S1.1.2T" singleTime="1.3" setupTime="0" calcTime="2.6">darin Anzahl Türen ausbauen</item>
+    <item idMode="2" qty="2" key="S1.1.3" singleTime="12.1" setupTime="3.6" calcTime="24.2">Schrank vorbereiten Schrankbreite &gt; 800 mm</item>
+    <item idMode="2" qty="2" key="S1.1.3M" singleTime="4.2" setupTime="0" calcTime="8.4">darin Anzahl Mopla gesamt</item>
+    <item idMode="2" qty="4" key="S1.1.3T" singleTime="1.3" setupTime="0" calcTime="5.2">darin Anzahl Türen ausbauen</item>
+    <item idMode="2" qty="1" key="S1.2" singleTime="1.3" setupTime="0" calcTime="1.3">Seitenwand bereitstellen</item>
+    <item idMode="2" qty="3" key="S1.5.1" singleTime="18.7" setupTime="1.6" calcTime="56.1">Anzahl Sockel oder Kabelrangierraum montieren</item>
+    <item idMode="2" qty="3" key="S1.6" singleTime="3.7" setupTime="0" calcTime="11.1">Rückwand demontieren </item>
+    <item idMode="2" qty="3" key="S1.9" singleTime="19.25" setupTime="3.6" calcTime="57.75">Reihung/Steckerhaube o.ä. montieren</item>
+    <item idMode="2" qty="5" key="S1.11" singleTime="2.25" setupTime="2.3" calcTime="11.25">Satz Bodenblech demontieren</item>
+    <item idMode="2" qty="1" key="S2.0" singleTime="0" setupTime="2.5" calcTime="0">Vorbereitung Perforex</item>
+    <item idMode="2" qty="5" key="S2.1.1" singleTime="4.8" setupTime="0" calcTime="24">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 1.000 mm rüsten</item>
+    <item idMode="2" qty="8" key="S2.1.2" singleTime="6.8" setupTime="0" calcTime="54.4">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 2.800 mm rüsten</item>
+    <item idMode="2" qty="2" key="S2.1.3" singleTime="11.3" setupTime="0" calcTime="22.6">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B &gt; 2.800 mm rüsten</item>
+    <item idMode="2" qty="13" key="S3.1.1P" singleTime="0.75" setupTime="0" calcTime="9.75">Anzahl Nachzubearbeitender Teile/Gehäuse H+B &lt; 2.800mm</item>
+    <item idMode="2" qty="2" key="S3.1.2P" singleTime="1.5" setupTime="0" calcTime="3">Anzahl Nachzubearbeitender Teile/Gehäuse H+B &gt; 2.800mm </item>
+    <item idMode="2" qty="1" key="S3.2.1" singleTime="0" setupTime="0.8" calcTime="81.85">Entgraten &amp; Korrosionsschutz auftragen - unlackierte Teile (z.B. Mopla, Bodenbleche, usw.)</item>
+    <item idMode="2" qty="1" key="S3.2.2" singleTime="0" setupTime="2.3" calcTime="48.7">Entgraten &amp; Korrosionsschutz auftragen - lackierte Teile (z.B. Beplankungsteile)</item>
+    <item idMode="2" qty="2" key="S1.10" singleTime="12.3" setupTime="3.9" calcTime="24.6">Montageplattenzwischenstück montieren</item>
+    <item idMode="2" qty="70" key="S3.5" singleTime="0.75" setupTime="3.6" calcTime="52.5">Ziehmutter/ Einziehbolzen setzen</item>
+    <item idMode="2" qty="9" key="S3.6" singleTime="10" setupTime="0" calcTime="90">Anfertigen von Sonderteil (Makrolon und Blech)</item>
+    <item idMode="2" qty="1" key="S4.0" singleTime="0" setupTime="1.1" calcTime="0">Vorbereitung Zuschnitt</item>
+    <item idMode="2" qty="30" key="S4.1" singleTime="2.87" setupTime="0" calcTime="86.1">Kanal zuschneiden inkl. Deckel  (Secarex/NCcut)</item>
+    <item idMode="2" qty="14" key="S4.3" singleTime="1.49" setupTime="0.34" calcTime="20.86">Tragschiene, Cu-Schiene &lt;15mm Breite zuschneiden (Secarex/NCcut)</item>
+    <item idMode="2" qty="8" key="S4.4" singleTime="1.75" setupTime="0.5" calcTime="14">Cu-Schiene zuschneiden  Vierstationengerät (Cu&gt;15mm)</item>
+    <item idMode="2" qty="1" key="S4.6" singleTime="2.45" setupTime="0.84" calcTime="2.45">Zuschnitt Blechkanal, Profilschienen, Kabelabfangschiene, Chassis (Bandsäge)</item>
+    <item idMode="2" qty="1" key="S5.0" singleTime="0" setupTime="3.6" calcTime="0">Montagevorbereitung (einmal pro Auftrag)</item>
+    <item idMode="2" qty="6" key="S5.1" singleTime="1.15" setupTime="0" calcTime="6.9">Tür einbauen</item>
+    <item idMode="2" qty="3" key="S5.3" singleTime="3.95" setupTime="0" calcTime="11.85">Rückwand montieren</item>
+    <item idMode="2" qty="1" key="S5.4" singleTime="3.25" setupTime="0" calcTime="3.25">Seitenwand montieren</item>
+    <item idMode="2" qty="1" key="S5.7" singleTime="12.35" setupTime="3.2" calcTime="12.35">Trennwand/Schottwand einbauen</item>
+    <item idMode="2" qty="2" key="S5.8" singleTime="2.65" setupTime="0.6" calcTime="5.3">zusätzliche Montageplattenversteifung</item>
+    <item idMode="2" qty="7" key="S5.9" singleTime="5.1" setupTime="1.2" calcTime="35.7">Montagechassis, o.ä. einbauen</item>
+    <item idMode="2" qty="3" key="S5.10" singleTime="5.5" setupTime="0" calcTime="16.5">Montageplatte einbauen</item>
+    <item idMode="2" qty="5" key="S5.11" singleTime="6.1" setupTime="2.3" calcTime="30.5">Satz Bodenblech einbauen (inkl. abdichten)</item>
+    <item idMode="2" qty="28" key="S5.12.1" singleTime="1.61" setupTime="1.6" calcTime="45.08">Anzahl Kanäle auf Montageplatte (einschl. Deckel)</item>
+    <item idMode="2" qty="55" key="S5.12.2" singleTime="0.3" setupTime="1.6" calcTime="16.5">Anzahl Tragschiene und Bezeichnungsschiene auf Montageplatte</item>
+    <item idMode="2" qty="41" key="S4.2" singleTime="0.8" setupTime="0" calcTime="32.8">Bezeichnungsschiene zuschneiden (Trapezschere)</item>
+    <item idMode="2" qty="371" key="S5.12.3N" singleTime="0.16" setupTime="0" calcTime="59.36">Anzahl zu setzender Nieten </item>
+    <item idMode="2" qty="48" key="S5.12.3S" singleTime="0.45" setupTime="0" calcTime="21.6">Anzahl zu setzender Schrauben</item>
+    <item idMode="2" qty="9" key="S5.14" singleTime="7.4" setupTime="3.9" calcTime="66.6">Schiene bohren und montieren (Chassis, Cu&gt;15mm, Kabelabfangschiene, Profil, C-Profil)</item>
+    <item idMode="2" qty="2" key="S5.16" singleTime="6.59" setupTime="3.2" calcTime="13.18">Leitungskanal auf Holm montieren</item>
+    <item idMode="2" qty="4" key="S5.17" singleTime="1.33" setupTime="4" calcTime="5.32">Bohren</item>
+    <item idMode="2" qty="63" key="S5.19" singleTime="0.3" setupTime="0" calcTime="18.9">Gewindeschneiden zusätzlich zum Bohren</item>
+    <item idMode="2" qty="2" key="S5.21" singleTime="2.15" setupTime="3.2" calcTime="4.3">Schweiß-/Erdbolzen setzen</item>
+    <item idMode="2" qty="22" key="S3.3" singleTime="0.3" setupTime="2.5" calcTime="6.6">Kantenschutz anbringen je 100 mm</item>
+    <item idMode="2" qty="36" key="S5.23" singleTime="2.695" setupTime="1.6" calcTime="97.02">Erdstelle freischleifen, fetten und Flachband-Erde anschrauben</item>
+    <item idMode="2" qty="58" key="S5.25" singleTime="0.16" setupTime="0.9" calcTime="9.28">Schrauben/ 6knt. Bolzen einschrauben</item>
+    <item idMode="2" qty="8" key="S5.26" singleTime="0.16" setupTime="0.9" calcTime="1.28">U-Teil montieren</item>
+    <item idMode="2" qty="67" key="S5.27" singleTime="2.7" setupTime="0.6" calcTime="180.9">Cu-Schiene &lt;15mm Breite auf Klemmhalter montieren</item>
+    <item idMode="2" qty="1" key="S5.28" singleTime="4.5" setupTime="0.8" calcTime="4.5">Ausschnitte im Kabelkanal</item>
+    <item idMode="2" qty="9" key="S5.30" singleTime="0.32" setupTime="1.9" calcTime="2.88">Schrägbügel montieren</item>
+    <item idMode="2" qty="1" key="S5.38" singleTime="2.56" setupTime="1.9" calcTime="2.56">Schaltplantasche montieren ohne Bohren</item>
+    <item idMode="2" qty="3" key="S5.39" singleTime="2.2" setupTime="1.9" calcTime="6.6">Blech, Winkel, Makrolon 1x biegen/kanten</item>
+    <item idMode="2" qty="2" key="S5.40" singleTime="0.7" setupTime="0.9" calcTime="1.4">Auflaufrolle montieren</item>
+    <item idMode="2" qty="3" key="S5.41" singleTime="2.25" setupTime="0.9" calcTime="6.75">Türarretierung montieren und einstellen</item>
+    <item idMode="2" qty="15" key="S5.42" singleTime="0.85" setupTime="1.9" calcTime="12.75">Sammelschienenhalter montieren</item>
+    <item idMode="2" qty="2" key="S5.SON1" singleTime="10" setupTime="3.5" calcTime="20">Farbgebung Blech</item>
+    <item idMode="2" qty="1" key="S5.SON2" singleTime="0.75" setupTime="0" calcTime="0.75">Tülle montieren</item>
+    <item idMode="2" qty="2" key="S5.SON3" singleTime="9" setupTime="0" calcTime="18">Bodenwanne Sammelschienensystem zuschneiden,anpassen und mont.</item>
+    <item idMode="2" qty="1" key="S5.SON4" singleTime="1" setupTime="0" calcTime="1">Stellerübergang von MP1 auf MP2 einstellen</item>
+    <item idMode="2" qty="5" key="S5.SON5" singleTime="1.5" setupTime="0.9" calcTime="7.5">Abdeckplatte TW  mont.</item>
+    <item idMode="2" qty="2" key="S5.SON6" singleTime="30" setupTime="0" calcTime="60">Blech mont.</item>
+    <item idMode="2" qty="1" key="S5.SON7" singleTime="5.1" setupTime="2" calcTime="5.1">PE/Messing-Bolzen aufbauen</item>
+    <item idMode="2" qty="1" key="S5.SON8" singleTime="15" setupTime="3.2" calcTime="15">Winkel mont.</item>
+    <item idMode="2" qty="1" key="S5.SON9" singleTime="0.75" setupTime="0.9" calcTime="0.75">Montageplatine montieren</item>
+    <item idMode="1" qty="1" key="S1.1.2" singleTime="12.1" setupTime="3.6" calcTime="12.1">Schrank vorbereiten Schrankbreite = 800 mm</item>
+    <item idMode="1" qty="1" key="S1.1.2M" singleTime="3.45" setupTime="0" calcTime="3.45">darin Anzahl Mopla gesamt</item>
+    <item idMode="1" qty="2" key="S1.1.2T" singleTime="1.3" setupTime="0" calcTime="2.6">darin Anzahl Türen ausbauen</item>
+    <item idMode="1" qty="2" key="S1.1.3" singleTime="12.1" setupTime="3.6" calcTime="24.2">Schrank vorbereiten Schrankbreite &gt; 800 mm</item>
+    <item idMode="1" qty="2" key="S1.1.3M" singleTime="4.2" setupTime="0" calcTime="8.4">darin Anzahl Mopla gesamt</item>
+    <item idMode="1" qty="4" key="S1.1.3T" singleTime="1.3" setupTime="0" calcTime="5.2">darin Anzahl Türen ausbauen</item>
+    <item idMode="1" qty="1" key="S1.2" singleTime="1.3" setupTime="0" calcTime="1.3">Seitenwand bereitstellen</item>
+    <item idMode="1" qty="3" key="S1.5.1" singleTime="18.7" setupTime="1.6" calcTime="56.1">Anzahl Sockel oder Kabelrangierraum montieren</item>
+    <item idMode="1" qty="3" key="S1.6" singleTime="3.7" setupTime="0" calcTime="11.1">Rückwand demontieren </item>
+    <item idMode="1" qty="3" key="S1.9" singleTime="19.25" setupTime="3.6" calcTime="57.75">Reihung/Steckerhaube o.ä. montieren</item>
+    <item idMode="1" qty="5" key="S1.11" singleTime="2.25" setupTime="2.3" calcTime="11.25">Satz Bodenblech demontieren</item>
+    <item idMode="1" qty="1" key="S2.6" singleTime="0" setupTime="4.4" calcTime="0">Vorbereitung Laser</item>
+    <item idMode="1" qty="5" key="S2.6.1" singleTime="3.53" setupTime="0" calcTime="17.65">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 1.000 mm rüsten</item>
+    <item idMode="1" qty="8" key="S2.6.2" singleTime="3.15" setupTime="0" calcTime="25.2">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 2.800 mm rüsten</item>
+    <item idMode="1" qty="2" key="S2.6.3" singleTime="4.78" setupTime="0" calcTime="9.56">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B &gt; 2.800 mm rüsten mit Beladung per Schlauchheber</item>
+    <item idMode="1" qty="1" key="S2.7" singleTime="0" setupTime="4.4" calcTime="0">Vorbereitung Gewinderoboter</item>
+    <item idMode="1" qty="1" key="S2.7.2" singleTime="3.15" setupTime="0" calcTime="3.15">Mopla/Bodenplatte/Flanschplatte/Blech H+B = 2.800 mm rüsten</item>
+    <item idMode="1" qty="2" key="S2.7.3" singleTime="5.78" setupTime="0" calcTime="11.56">Mopla/Bodenplatte/Flanschplatte/Blech H+B &gt; 2.800 mm rüsten</item>
+    <item idMode="1" qty="1" key="S2.7.1H" singleTime="20.91" setupTime="1.2" calcTime="20.91">manuell Gewindeformen lackierter Teile</item>
+    <item idMode="1" qty="6" key="S3.1.1L" singleTime="0.75" setupTime="0" calcTime="4.5">Anzahl Nachzubearbeitender Teile/Gehäuse H+B &lt; 2.800mm</item>
+    <item idMode="1" qty="1" key="S3.2.3" singleTime="27.45" setupTime="0.8" calcTime="27.45">Korossionsschutz auftragen - lackierte Teile (z.B. Mopla, Bodenbleche, usw.)</item>
+    <item idMode="1" qty="2" key="S1.10" singleTime="12.3" setupTime="3.9" calcTime="24.6">Montageplattenzwischenstück montieren</item>
+    <item idMode="1" qty="70" key="S3.5" singleTime="0.75" setupTime="3.6" calcTime="52.5">Ziehmutter/ Einziehbolzen setzen</item>
+    <item idMode="1" qty="9" key="S3.6" singleTime="10" setupTime="0" calcTime="90">Anfertigen von Sonderteil (Makrolon und Blech)</item>
+    <item idMode="1" qty="1" key="S4.0" singleTime="0" setupTime="1.1" calcTime="0">Vorbereitung Zuschnitt</item>
+    <item idMode="1" qty="30" key="S4.1" singleTime="2.87" setupTime="0" calcTime="86.1">Kanal zuschneiden inkl. Deckel  (Secarex/NCcut)</item>
+    <item idMode="1" qty="14" key="S4.3" singleTime="1.49" setupTime="0.34" calcTime="20.86">Tragschiene, Cu-Schiene &lt;15mm Breite zuschneiden (Secarex/NCcut)</item>
+    <item idMode="1" qty="8" key="S4.4" singleTime="1.75" setupTime="0.5" calcTime="14">Cu-Schiene zuschneiden  Vierstationengerät (Cu&gt;15mm)</item>
+    <item idMode="1" qty="1" key="S4.6" singleTime="2.45" setupTime="0.84" calcTime="2.45">Zuschnitt Blechkanal, Profilschienen, Kabelabfangschiene, Chassis (Bandsäge)</item>
+    <item idMode="1" qty="1" key="S5.0" singleTime="0" setupTime="3.6" calcTime="0">Montagevorbereitung (einmal pro Auftrag)</item>
+    <item idMode="1" qty="6" key="S5.1" singleTime="1.15" setupTime="0" calcTime="6.9">Tür einbauen</item>
+    <item idMode="1" qty="3" key="S5.3" singleTime="3.95" setupTime="0" calcTime="11.85">Rückwand montieren</item>
+    <item idMode="1" qty="1" key="S5.4" singleTime="3.25" setupTime="0" calcTime="3.25">Seitenwand montieren</item>
+    <item idMode="1" qty="1" key="S5.7" singleTime="12.35" setupTime="3.2" calcTime="12.35">Trennwand/Schottwand einbauen</item>
+    <item idMode="1" qty="10" key="S5.31" singleTime="2.26" setupTime="1.6" calcTime="22.6">Modulplatte in Trennwand montieren</item>
+    <item idMode="1" qty="2" key="S5.8" singleTime="2.65" setupTime="0.6" calcTime="5.3">zusätzliche Montageplattenversteifung</item>
+    <item idMode="1" qty="7" key="S5.9" singleTime="5.1" setupTime="1.2" calcTime="35.7">Montagechassis, o.ä. einbauen</item>
+    <item idMode="1" qty="3" key="S5.10" singleTime="5.5" setupTime="0" calcTime="16.5">Montageplatte einbauen</item>
+    <item idMode="1" qty="5" key="S5.11" singleTime="6.1" setupTime="2.3" calcTime="30.5">Satz Bodenblech einbauen (inkl. abdichten)</item>
+    <item idMode="1" qty="28" key="S5.12.1" singleTime="1.61" setupTime="1.6" calcTime="45.08">Anzahl Kanäle auf Montageplatte (einschl. Deckel)</item>
+    <item idMode="1" qty="55" key="S5.12.2" singleTime="0.3" setupTime="1.6" calcTime="16.5">Anzahl Tragschiene und Bezeichnungsschiene auf Montageplatte</item>
+    <item idMode="1" qty="41" key="S4.2" singleTime="0.8" setupTime="0" calcTime="32.8">Bezeichnungsschiene zuschneiden (Trapezschere)</item>
+    <item idMode="1" qty="371" key="S5.12.3N" singleTime="0.16" setupTime="0" calcTime="59.36">Anzahl zu setzender Nieten </item>
+    <item idMode="1" qty="48" key="S5.12.3S" singleTime="0.45" setupTime="0" calcTime="21.6">Anzahl zu setzender Schrauben</item>
+    <item idMode="1" qty="9" key="S5.14" singleTime="7.4" setupTime="3.9" calcTime="66.6">Schiene bohren und montieren (Chassis, Cu&gt;15mm, Kabelabfangschiene, Profil, C-Profil)</item>
+    <item idMode="1" qty="2" key="S5.16" singleTime="6.59" setupTime="3.2" calcTime="13.18">Leitungskanal auf Holm montieren</item>
+    <item idMode="1" qty="4" key="S5.17" singleTime="1.33" setupTime="4" calcTime="5.32">Bohren</item>
+    <item idMode="1" qty="63" key="S5.19" singleTime="0.3" setupTime="0" calcTime="18.9">Gewindeschneiden zusätzlich zum Bohren</item>
+    <item idMode="1" qty="2" key="S5.21" singleTime="2.15" setupTime="3.2" calcTime="4.3">Schweiß-/Erdbolzen setzen</item>
+    <item idMode="1" qty="22" key="S3.3" singleTime="0.3" setupTime="2.5" calcTime="6.6">Kantenschutz anbringen je 100 mm</item>
+    <item idMode="1" qty="36" key="S5.23" singleTime="2.695" setupTime="1.6" calcTime="97.02">Erdstelle freischleifen, fetten und Flachband-Erde anschrauben</item>
+    <item idMode="1" qty="58" key="S5.25" singleTime="0.16" setupTime="0.9" calcTime="9.28">Schrauben/ 6knt. Bolzen einschrauben</item>
+    <item idMode="1" qty="8" key="S5.26" singleTime="0.16" setupTime="0.9" calcTime="1.28">U-Teil montieren</item>
+    <item idMode="1" qty="67" key="S5.27" singleTime="2.7" setupTime="0.6" calcTime="180.9">Cu-Schiene &lt;15mm Breite auf Klemmhalter montieren</item>
+    <item idMode="1" qty="1" key="S5.28" singleTime="4.5" setupTime="0.8" calcTime="4.5">Ausschnitte im Kabelkanal</item>
+    <item idMode="1" qty="9" key="S5.30" singleTime="0.32" setupTime="1.9" calcTime="2.88">Schrägbügel montieren</item>
+    <item idMode="1" qty="1" key="S5.38" singleTime="2.56" setupTime="1.9" calcTime="2.56">Schaltplantasche montieren ohne Bohren</item>
+    <item idMode="1" qty="3" key="S5.39" singleTime="2.2" setupTime="1.9" calcTime="6.6">Blech, Winkel, Makrolon 1x biegen/kanten</item>
+    <item idMode="1" qty="2" key="S5.40" singleTime="0.7" setupTime="0.9" calcTime="1.4">Auflaufrolle montieren</item>
+    <item idMode="1" qty="3" key="S5.41" singleTime="2.25" setupTime="0.9" calcTime="6.75">Türarretierung montieren und einstellen</item>
+    <item idMode="1" qty="15" key="S5.42" singleTime="0.85" setupTime="1.9" calcTime="12.75">Sammelschienenhalter montieren</item>
+    <item idMode="1" qty="2" key="S5.SON1" singleTime="10" setupTime="3.5" calcTime="20">Farbgebung Blech</item>
+    <item idMode="1" qty="1" key="S5.SON2" singleTime="0.75" setupTime="0" calcTime="0.75">Tülle montieren</item>
+    <item idMode="1" qty="2" key="S5.SON3" singleTime="9" setupTime="0" calcTime="18">Bodenwanne Sammelschienensystem zuschneiden,anpassen und mont.</item>
+    <item idMode="1" qty="1" key="S5.SON4" singleTime="1" setupTime="0" calcTime="1">Stellerübergang von MP1 auf MP2 einstellen</item>
+    <item idMode="1" qty="5" key="S5.SON5" singleTime="1.5" setupTime="0.9" calcTime="7.5">Abdeckplatte TW  mont.</item>
+    <item idMode="1" qty="2" key="S5.SON6" singleTime="30" setupTime="0" calcTime="60">Blech mont.</item>
+    <item idMode="1" qty="1" key="S5.SON7" singleTime="5.1" setupTime="2" calcTime="5.1">PE/Messing-Bolzen aufbauen</item>
+    <item idMode="1" qty="1" key="S5.SON8" singleTime="15" setupTime="3.2" calcTime="15">Winkel mont.</item>
+    <item idMode="1" qty="1" key="S5.SON9" singleTime="0.75" setupTime="0.9" calcTime="0.75">Montageplatine montieren</item>
+  </KalkulationSchrank>
+  <KalkulationKasten>
+	<item idMode="1" qty="1" key="S5.SON9" singleTime="0.75" setupTime="0.9" calcTime="0.75">Montageplatine montieren</item>
+  </KalkulationKasten>
+  <KalkulationPult>
+    <item idMode="2" qty="1" key="P1.0" singleTime="0" setupTime="1.6" calcTime="0">blaue Wagen vorbereiten</item>
+    <item idMode="2" qty="5" key="P1.1" singleTime="3.55" setupTime="0" calcTime="17.75">Pult (Top-P. TP,Standp.AP) vorbereiten allgemein</item>
+    <item idMode="2" qty="5" key="P1.1.1M" singleTime="1.45" setupTime="0" calcTime="7.25">darin Anzahl Mopla gesamt</item>
+    <item idMode="2" qty="7" key="P1.1.1T" singleTime="1.3" setupTime="0" calcTime="9.1">darin Anzahl Türen ausbauen</item>
+    <item idMode="2" qty="1" key="P1.2" singleTime="18.7" setupTime="1.6" calcTime="18.7">Anzahl Sockel montieren</item>
+    <item idMode="2" qty="1" key="P1.3" singleTime="3.6" setupTime="2.3" calcTime="3.6">Pult/Sockel/Standfuß/Traverse auf Transportboden befestigen oder 4 Räder anschrauben</item>
+    <item idMode="2" qty="2" key="P1.4" singleTime="4" setupTime="0" calcTime="8">Pult-Unterteil auf Sockel montieren</item>
+    <item idMode="2" qty="3" key="P1.5" singleTime="10.2" setupTime="1.6" calcTime="30.6">Pult-Mittel- und Oberteil befestigen </item>
+    <item idMode="2" qty="1" key="P1.6" singleTime="2.1" setupTime="1.6" calcTime="2.1">Pult-Abdeckplatte befestigen </item>
+    <item idMode="2" qty="1" key="P2.0" singleTime="0" setupTime="2.5" calcTime="0">Vorbereitung Perforex</item>
+    <item idMode="2" qty="1" key="P2.1.1" singleTime="4.8" setupTime="0" calcTime="4.8">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 1.000 mm rüsten</item>
+    <item idMode="2" qty="6" key="P2.1.2" singleTime="6.8" setupTime="0" calcTime="40.8">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 2.800 mm rüsten</item>
+    <item idMode="2" qty="1" key="P2.2" singleTime="6.1" setupTime="0" calcTime="6.1">Gehäusewand bearbeiten (Menge der Umspannvorgänge)</item>
+    <item idMode="2" qty="8" key="P3.1.1P" singleTime="0.75" setupTime="0" calcTime="6">Anzahl Nachzubearbeitender Teile/Gehäuse H+B &lt; 2.800mm</item>
+    <item idMode="2" qty="1" key="P3.2.1" singleTime="3.75" setupTime="0.8" calcTime="3.75">Nacharbeit unlackierte Teile (z.B. Mopla, Bodenbleche, usw.)</item>
+    <item idMode="2" qty="9" key="P3.5" singleTime="0.75" setupTime="3.6" calcTime="6.75">Ziehmutter/ Einziehbolzen setzen</item>
+    <item idMode="2" qty="2" key="P3.6" singleTime="10" setupTime="0" calcTime="20">Anfertigen von Sonderteil (Makrolon und Blech)</item>
+    <item idMode="2" qty="1" key="P4.0" singleTime="0" setupTime="1.1" calcTime="0">Vorbereitung Zuschnitt</item>
+    <item idMode="2" qty="5" key="P4.1" singleTime="2.87" setupTime="0" calcTime="14.35">Kanal zuschneiden inkl. Deckel  (Secarex/NCcut)</item>
+    <item idMode="2" qty="7" key="P4.3" singleTime="1.49" setupTime="0.34" calcTime="10.43">Tragschiene, Cu-Schiene &lt;15mm Breite zuschneiden (Secarex/NCcut)</item>
+    <item idMode="2" qty="1" key="P4.4" singleTime="1.75" setupTime="0.5" calcTime="1.75">Cu-Schiene zuschneiden  Vierstationengerät (Cu&gt;15mm)</item>
+    <item idMode="2" qty="8" key="P4.6" singleTime="2.45" setupTime="0.84" calcTime="19.6">Zuschnitt Blechkanal, Profilschienen, Kabelabfangschiene, Chassis (Bandsäge)</item>
+    <item idMode="2" qty="1" key="P5.0" singleTime="0" setupTime="4.05" calcTime="0">Montagevorbereitung (einmal pro Auftrag)</item>
+    <item idMode="2" qty="7" key="P5.1" singleTime="0.9" setupTime="0" calcTime="6.3">Tür/Klappe einbauen</item>
+    <item idMode="2" qty="2" key="P5.2.1" singleTime="5.355" setupTime="0.8" calcTime="10.71">Satz Scharniere montieren/wechseln</item>
+    <item idMode="2" qty="2" key="P5.2.2" singleTime="3" setupTime="0.8" calcTime="6">Türgriff montieren/wechseln</item>
+    <item idMode="2" qty="4" key="P5.10.1" singleTime="2.55" setupTime="0" calcTime="10.2">Montageplatte in Kasten/Pult (&lt;800 x 800mm) einbauen</item>
+    <item idMode="2" qty="1" key="P5.11.2" singleTime="4.9" setupTime="2.3" calcTime="4.9">Satz Bodenblech aus- und einbauen (inkl. abdichten)</item>
+    <item idMode="2" qty="5" key="P5.12.1" singleTime="1.61" setupTime="1.6" calcTime="8.05">Anzahl Kanäle auf Montageplatte (einschl. Deckel)</item>
+    <item idMode="2" qty="19" key="P5.12.2" singleTime="0.3" setupTime="1.6" calcTime="5.7">Anzahl Tragschiene und Bezeichnungsschiene auf Montageplatte</item>
+    <item idMode="2" qty="12" key="P4.2" singleTime="0.8" setupTime="0" calcTime="9.6">Bezeichnungsschiene zuschneiden (Trapezschere)</item>
+    <item idMode="2" qty="27" key="P5.12.3N" singleTime="0.16" setupTime="0" calcTime="4.32">Anzahl zu setzender Nieten</item>
+    <item idMode="2" qty="6" key="P5.12.3S" singleTime="0.45" setupTime="0" calcTime="2.7">Anzahl zu setzender Schrauben</item>
+    <item idMode="2" qty="12" key="P5.17" singleTime="1.33" setupTime="4" calcTime="15.96">Bohren</item>
+    <item idMode="2" qty="4" key="P5.18" singleTime="0.9" setupTime="1.8" calcTime="3.6">Ansenken</item>
+    <item idMode="2" qty="11" key="P5.19" singleTime="0.3" setupTime="0" calcTime="3.3">Gewindeschneiden zusätzlich zum Bohren</item>
+    <item idMode="2" qty="3" key="P5.20" singleTime="3.4" setupTime="3" calcTime="10.2">Ausschnitt mit Handstempel</item>
+    <item idMode="2" qty="26" key="P5.21" singleTime="2.15" setupTime="3.2" calcTime="55.9">Schweiß-/Erdbolzen setzen</item>
+    <item idMode="2" qty="19" key="P3.3" singleTime="0.3" setupTime="2.5" calcTime="5.7">Kantenschutz anbringen je 100 mm</item>
+    <item idMode="2" qty="11" key="P5.23" singleTime="2.62" setupTime="1.6" calcTime="28.82">Erdstelle freischleifen, fetten und Flach-Erdband anschrauben</item>
+    <item idMode="2" qty="14" key="P5.25" singleTime="0.16" setupTime="0.9" calcTime="2.24">Schrauben/ 6knt. Bolzen einschrauben</item>
+    <item idMode="2" qty="1" key="P5.SON2" singleTime="35" setupTime="0" calcTime="35">Einschubboden mont. + Chassis + Teleskopschienen</item>
+    <item idMode="2" qty="1" key="P5.SON3" singleTime="20" setupTime="0" calcTime="20">Mopla ausarbeiten und zusäzlich befestigen</item>
+    <item idMode="2" qty="2" key="P5.SON4" singleTime="2" setupTime="0" calcTime="4">Sammelschienenhalter mont.</item>
+    <item idMode="2" qty="2" key="P5.SON5" singleTime="30" setupTime="0" calcTime="60">Pultunter - und Pultmittelteil untereinader verbinden</item>
+    <item idMode="2" qty="1" key="P5.SON6" singleTime="15" setupTime="2" calcTime="15">Pultunterteile abdichten und verbinden </item>
+    <item idMode="2" qty="1" key="P5.SON7" singleTime="2.5" setupTime="0" calcTime="2.5">Montage Kabelverschraubung</item>
+    <item idMode="2" qty="2" key="P5.SON8" singleTime="5" setupTime="0" calcTime="10">Chassis modifizieren</item>
+    <item idMode="2" qty="1" key="P5.SON9" singleTime="15" setupTime="0" calcTime="15">Blech mont.</item>
+    <item idMode="2" qty="2" key="P5.SON10" singleTime="8.5" setupTime="1.9" calcTime="17">PE-Bolzen versetzen</item>
+    <item idMode="2" qty="1" key="P5.SON11" singleTime="2.5" setupTime="0" calcTime="2.5">Halter Ablageblech entfernen</item>
+    <item idMode="2" qty="1" key="P5.SON12" singleTime="5" setupTime="0" calcTime="5">19"-Rahmen komplett demontieren</item>
+    <item idMode="2" qty="1" key="P5.SON13" singleTime="10" setupTime="0" calcTime="10">Druckerblech anpassen</item>
+    <item idMode="1" qty="1" key="P1.0" singleTime="0" setupTime="1.6" calcTime="0">blaue Wagen vorbereiten</item>
+    <item idMode="1" qty="5" key="P1.1" singleTime="3.55" setupTime="0" calcTime="17.75">Pult (Top-P. TP,Standp.AP) vorbereiten allgemein</item>
+    <item idMode="1" qty="5" key="P1.1.1M" singleTime="1.45" setupTime="0" calcTime="7.25">darin Anzahl Mopla gesamt</item>
+    <item idMode="1" qty="7" key="P1.1.1T" singleTime="1.3" setupTime="0" calcTime="9.1">darin Anzahl Türen ausbauen</item>
+    <item idMode="1" qty="1" key="P1.2" singleTime="18.7" setupTime="1.6" calcTime="18.7">Anzahl Sockel montieren</item>
+    <item idMode="1" qty="1" key="P1.3" singleTime="3.6" setupTime="2.3" calcTime="3.6">Pult/Sockel/Standfuß/Traverse auf Transportboden befestigen oder 4 Räder anschrauben</item>
+    <item idMode="1" qty="2" key="P1.4" singleTime="4" setupTime="0" calcTime="8">Pult-Unterteil auf Sockel montieren</item>
+    <item idMode="1" qty="3" key="P1.5" singleTime="10.2" setupTime="1.6" calcTime="30.6">Pult-Mittel- und Oberteil befestigen </item>
+    <item idMode="1" qty="1" key="P1.6" singleTime="2.1" setupTime="1.6" calcTime="2.1">Pult-Abdeckplatte befestigen </item>
+    <item idMode="1" qty="1" key="P2.0" singleTime="0" setupTime="2.5" calcTime="0">Vorbereitung Perforex</item>
+    <item idMode="1" qty="1" key="P2.1.1" singleTime="4.8" setupTime="0" calcTime="4.8">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 1.000 mm rüsten</item>
+    <item idMode="1" qty="2" key="P2.1.2" singleTime="6.8" setupTime="0" calcTime="13.6">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 2.800 mm rüsten</item>
+    <item idMode="1" qty="1" key="P2.2" singleTime="6.1" setupTime="0" calcTime="6.1">Gehäusewand bearbeiten (Menge der Umspannvorgänge)</item>
+    <item idMode="1" qty="4" key="P3.1.1P" singleTime="0.75" setupTime="0" calcTime="3">Anzahl Nachzubearbeitender Teile/Gehäuse H+B &lt; 2.800mm</item>
+    <item idMode="1" qty="1" key="P3.2.1" singleTime="3.75" setupTime="0.8" calcTime="3.75">Nacharbeit unlackierte Teile (z.B. Mopla, Bodenbleche, usw.)</item>
+    <item idMode="1" qty="1" key="P2.6" singleTime="0" setupTime="4.4" calcTime="0">Vorbereitung Laser</item>
+    <item idMode="1" qty="4" key="P2.6.2" singleTime="3.15" setupTime="0" calcTime="12.6">Mopla/Bodenplatte/Flanschplatte/Blech/Tür H+B = 2.800 mm rüsten</item>
+    <item idMode="1" qty="1" key="P2.7" singleTime="0" setupTime="4.4" calcTime="0">Vorbereitung Gewinderoboter</item>
+    <item idMode="1" qty="1" key="P2.7.2" singleTime="3.15" setupTime="0" calcTime="3.15">Mopla/Bodenplatte/Flanschplatte/Blech H+B = 2.800 mm rüsten</item>
+    <item idMode="1" qty="3" key="P3.1.1L" singleTime="0.75" setupTime="0" calcTime="2.25">Anzahl Nachzubearbeitender Teile/Gehäuse H+B &lt; 2.800mm</item>
+    <item idMode="1" qty="9" key="P3.5" singleTime="0.75" setupTime="3.6" calcTime="6.75">Ziehmutter/ Einziehbolzen setzen</item>
+    <item idMode="1" qty="2" key="P3.6" singleTime="10" setupTime="0" calcTime="20">Anfertigen von Sonderteil (Makrolon und Blech)</item>
+    <item idMode="1" qty="1" key="P4.0" singleTime="0" setupTime="1.1" calcTime="0">Vorbereitung Zuschnitt</item>
+    <item idMode="1" qty="5" key="P4.1" singleTime="2.87" setupTime="0" calcTime="14.35">Kanal zuschneiden inkl. Deckel  (Secarex/NCcut)</item>
+    <item idMode="1" qty="7" key="P4.3" singleTime="1.49" setupTime="0.34" calcTime="10.43">Tragschiene, Cu-Schiene &lt;15mm Breite zuschneiden (Secarex/NCcut)</item>
+    <item idMode="1" qty="1" key="P4.4" singleTime="1.75" setupTime="0.5" calcTime="1.75">Cu-Schiene zuschneiden  Vierstationengerät (Cu&gt;15mm)</item>
+    <item idMode="1" qty="8" key="P4.6" singleTime="2.45" setupTime="0.84" calcTime="19.6">Zuschnitt Blechkanal, Profilschienen, Kabelabfangschiene, Chassis (Bandsäge)</item>
+    <item idMode="1" qty="1" key="P5.0" singleTime="0" setupTime="4.05" calcTime="0">Montagevorbereitung (einmal pro Auftrag)</item>
+    <item idMode="1" qty="7" key="P5.1" singleTime="0.9" setupTime="0" calcTime="6.3">Tür/Klappe einbauen</item>
+    <item idMode="1" qty="2" key="P5.2.1" singleTime="5.355" setupTime="0.8" calcTime="10.71">Satz Scharniere montieren/wechseln</item>
+    <item idMode="1" qty="2" key="P5.2.2" singleTime="3" setupTime="0.8" calcTime="6">Türgriff montieren/wechseln</item>
+    <item idMode="1" qty="4" key="P5.10.1" singleTime="2.55" setupTime="0" calcTime="10.2">Montageplatte in Kasten/Pult (&lt;800 x 800mm) einbauen</item>
+    <item idMode="1" qty="1" key="P5.11.2" singleTime="4.9" setupTime="2.3" calcTime="4.9">Satz Bodenblech aus- und einbauen (inkl. abdichten)</item>
+    <item idMode="1" qty="5" key="P5.12.1" singleTime="1.61" setupTime="1.6" calcTime="8.05">Anzahl Kanäle auf Montageplatte (einschl. Deckel)</item>
+    <item idMode="1" qty="19" key="P5.12.2" singleTime="0.3" setupTime="1.6" calcTime="5.7">Anzahl Tragschiene und Bezeichnungsschiene auf Montageplatte</item>
+    <item idMode="1" qty="12" key="P4.2" singleTime="0.8" setupTime="0" calcTime="">Bezeichnungsschiene zuschneiden (Trapezschere)</item>
+    <item idMode="1" qty="27" key="P5.12.3N" singleTime="0.16" setupTime="0" calcTime="4.32">Anzahl zu setzender Nieten</item>
+    <item idMode="1" qty="6" key="P5.12.3S" singleTime="0.45" setupTime="0" calcTime="2.7">Anzahl zu setzender Schrauben</item>
+    <item idMode="1" qty="12" key="P5.17" singleTime="1.33" setupTime="4" calcTime="15.96">Bohren</item>
+    <item idMode="1" qty="4" key="P5.18" singleTime="0.9" setupTime="1.8" calcTime="3.6">Ansenken</item>
+    <item idMode="1" qty="11" key="P5.19" singleTime="0.3" setupTime="0" calcTime="3.3">Gewindeschneiden zusätzlich zum Bohren</item>
+    <item idMode="1" qty="3" key="P5.20" singleTime="3.4" setupTime="3" calcTime="10.2">Ausschnitt mit Handstempel</item>
+    <item idMode="1" qty="26" key="P5.21" singleTime="2.15" setupTime="3.2" calcTime="55.9">Schweiß-/Erdbolzen setzen</item>
+    <item idMode="1" qty="19" key="P3.3" singleTime="0.3" setupTime="2.5" calcTime="">Kantenschutz anbringen je 100 mm</item>
+    <item idMode="1" qty="11" key="P5.23" singleTime="2.62" setupTime="1.6" calcTime="28.82">Erdstelle freischleifen, fetten und Flach-Erdband anschrauben</item>
+    <item idMode="1" qty="14" key="P5.25" singleTime="0.16" setupTime="0.9" calcTime="2.24">Schrauben/ 6knt. Bolzen einschrauben</item>
+    <item idMode="1" qty="1" key="P5.SON2" singleTime="35" setupTime="0" calcTime="35">Einschubboden mont. + Chassis + Teleskopschienen</item>
+    <item idMode="1" qty="1" key="P5.SON3" singleTime="20" setupTime="0" calcTime="20">Mopla ausarbeiten und zusäzlich befestigen</item>
+    <item idMode="1" qty="2" key="P5.SON4" singleTime="2" setupTime="0" calcTime="4">Sammelschienenhalter mont.</item>
+    <item idMode="1" qty="2" key="P5.SON5" singleTime="30" setupTime="0" calcTime="60">Pultunter - und Pultmittelteil untereinader verbinden</item>
+    <item idMode="1" qty="1" key="P5.SON6" singleTime="15" setupTime="2" calcTime="15">Pultunterteile abdichten und verbinden </item>
+    <item idMode="1" qty="1" key="P5.SON7" singleTime="2.5" setupTime="0" calcTime="2.5">Montage Kabelverschraubung</item>
+    <item idMode="1" qty="2" key="P5.SON8" singleTime="5" setupTime="0" calcTime="10">Chassis modifizieren</item>
+    <item idMode="1" qty="1" key="P5.SON9" singleTime="15" setupTime="0" calcTime="15">Blech mont.</item>
+    <item idMode="1" qty="2" key="P5.SON10" singleTime="8.5" setupTime="1.9" calcTime="17">PE-Bolzen versetzen</item>
+    <item idMode="1" qty="1" key="P5.SON11" singleTime="2.5" setupTime="0" calcTime="2.5">Halter Ablageblech entfernen</item>
+    <item idMode="1" qty="1" key="P5.SON12" singleTime="5" setupTime="0" calcTime="5">19"-Rahmen komplett demontieren</item>
+    <item idMode="1" qty="1" key="P5.SON13" singleTime="10" setupTime="0" calcTime="10">Druckerblech anpassen</item>
+  </KalkulationPult>
+</mk>
