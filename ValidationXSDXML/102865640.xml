@@ -230,7 +230,7 @@
     <item idMode="1" qty="1" key="P5.11.2" singleTime="4.9" setupTime="2.3" calcTime="4.9">Satz Bodenblech aus- und einbauen (inkl. abdichten)</item>
     <item idMode="1" qty="5" key="P5.12.1" singleTime="1.61" setupTime="1.6" calcTime="8.05">Anzahl Kanäle auf Montageplatte (einschl. Deckel)</item>
     <item idMode="1" qty="19" key="P5.12.2" singleTime="0.3" setupTime="1.6" calcTime="5.7">Anzahl Tragschiene und Bezeichnungsschiene auf Montageplatte</item>
-    <item idMode="1" qty="12" key="P4.2" singleTime="0.8" setupTime="0" calcTime="">Bezeichnungsschiene zuschneiden (Trapezschere)</item>
+    <item idMode="1" qty="12" key="P4.2" singleTime="0.8" setupTime="0" calcTime="9.6">Bezeichnungsschiene zuschneiden (Trapezschere)</item>
     <item idMode="1" qty="27" key="P5.12.3N" singleTime="0.16" setupTime="0" calcTime="4.32">Anzahl zu setzender Nieten</item>
     <item idMode="1" qty="6" key="P5.12.3S" singleTime="0.45" setupTime="0" calcTime="2.7">Anzahl zu setzender Schrauben</item>
     <item idMode="1" qty="12" key="P5.17" singleTime="1.33" setupTime="4" calcTime="15.96">Bohren</item>
@@ -238,7 +238,7 @@
     <item idMode="1" qty="11" key="P5.19" singleTime="0.3" setupTime="0" calcTime="3.3">Gewindeschneiden zusätzlich zum Bohren</item>
     <item idMode="1" qty="3" key="P5.20" singleTime="3.4" setupTime="3" calcTime="10.2">Ausschnitt mit Handstempel</item>
     <item idMode="1" qty="26" key="P5.21" singleTime="2.15" setupTime="3.2" calcTime="55.9">Schweiß-/Erdbolzen setzen</item>
-    <item idMode="1" qty="19" key="P3.3" singleTime="0.3" setupTime="2.5" calcTime="">Kantenschutz anbringen je 100 mm</item>
+    <item idMode="1" qty="19" key="P3.3" singleTime="0.3" setupTime="2.5" calcTime="8.2">Kantenschutz anbringen je 100 mm</item>
     <item idMode="1" qty="11" key="P5.23" singleTime="2.62" setupTime="1.6" calcTime="28.82">Erdstelle freischleifen, fetten und Flach-Erdband anschrauben</item>
     <item idMode="1" qty="14" key="P5.25" singleTime="0.16" setupTime="0.9" calcTime="2.24">Schrauben/ 6knt. Bolzen einschrauben</item>
     <item idMode="1" qty="1" key="P5.SON2" singleTime="35" setupTime="0" calcTime="35">Einschubboden mont. + Chassis + Teleskopschienen</item>

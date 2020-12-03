@@ -20,7 +20,7 @@
           <xs:attribute name="key" use="required">
             <xs:simpleType>
               <xs:restriction base="xs:string">
-                <xs:length value="15"/>
+                <xs:maxLength value="15"/>
               </xs:restriction>
             </xs:simpleType>
           </xs:attribute>
@@ -59,28 +59,29 @@
       <xs:attribute name="version" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:length value="10"></xs:length>
+            <xs:minLength value="3"/>
+            <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="ppnr" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:length value="12"></xs:length>
+            <xs:maxLength value="12"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="sd" use="optional">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:length value="10"></xs:length>
+            <xs:maxLength value="10"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="team" use="optional">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:length value="100"></xs:length>
+            <xs:maxLength value="100"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
