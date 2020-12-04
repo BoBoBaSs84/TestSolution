@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace ValidationXSDXML {
+namespace ValidationXSDXML.misc {
     
     
     /// <summary>

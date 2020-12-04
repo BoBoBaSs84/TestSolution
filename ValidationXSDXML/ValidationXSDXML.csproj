@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="mk.Designer.cs">
+    <Compile Update="misc\mk.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>mk.xsd</DependentUpon>
@@ -26,10 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="102865640.xml">
+    <None Update="misc\102865640.xml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="mk.xsd">
+    <None Update="misc\mk.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>mk.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
