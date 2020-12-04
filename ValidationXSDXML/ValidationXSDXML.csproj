@@ -19,12 +19,12 @@
 
   <ItemGroup>
     <None Update="102865640.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="mk.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>mk.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
