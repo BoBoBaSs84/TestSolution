@@ -3,10 +3,14 @@ using System;
 
 namespace ValidationXSDXML
 {
-    [Command(Name = "XML XSD Validator", Description = "The application validates an XML against the given XSD")]
+    [Command(Name = "XML/XSD Validator", Description = "The application validates an XML against the given XSD")]
     [HelpOption("-?")]
     class Program
     {
+        /// <summary>
+        /// Paramter -? wirft ein how to...
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
         [Argument(0, Description = "Name of the XSD file i.e. xsdfile.xsd, must be same directory of executable")]

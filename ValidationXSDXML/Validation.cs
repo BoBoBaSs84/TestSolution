@@ -8,6 +8,11 @@ namespace ValidationXSDXML
 {
     public class Validation
     {
+        /// <summary>
+        /// Die Methode validiert das xml mit dem xsd, gibt abweichungen line by line aus
+        /// </summary>
+        /// <param name="p_strXSD"></param>
+        /// <param name="p_strXML"></param>
         public void Validate(string p_strXSD, string p_strXML)
         {            
             var path = new Uri(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)).LocalPath;

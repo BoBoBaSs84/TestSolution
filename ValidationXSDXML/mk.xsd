@@ -92,7 +92,10 @@
       </xs:attribute>
       <xs:attribute name="quantitativeFactor" use="required">
         <xs:simpleType>
-          <xs:restriction base="xs:decimal"/>
+			<xs:restriction base="xs:decimal">
+				<xs:maxInclusive value="1.0"/>
+				<xs:minInclusive value="0.9"/>
+			</xs:restriction>
         </xs:simpleType>
       </xs:attribute>
     </xs:complexType>
