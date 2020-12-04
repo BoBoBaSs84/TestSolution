@@ -3,6 +3,14 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon>ICON.ICO</ApplicationIcon>
+    <StartupObject>ValidationXSDXML.Program</StartupObject>
+    <Authors>ADMERO9</Authors>
+    <Company>Siemens AG</Company>
+    <Copyright>(c) 2020 Siemens AG</Copyright>
+    <PackageTags>C#, XSD, XML</PackageTags>
+    <SignAssembly>true</SignAssembly>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
