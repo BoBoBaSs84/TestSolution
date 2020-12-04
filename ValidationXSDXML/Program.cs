@@ -9,9 +9,9 @@ namespace ValidationXSDXML
     {
         static void Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
-        [Argument(0, Description = "Path and/or name of the XSD file i.e. xsdfile.xsd")]
+        [Argument(0, Description = "Name of the XSD file i.e. xsdfile.xsd, must be same directory of executable")]
         private string Xsdfile { get; }
-        [Argument(1, Description = "Path and/or name of the XML file i.e. xmlfile.xml")]
+        [Argument(1, Description = "Name of the XML file i.e. xmlfile.xml, must be same directory of executable")]
         private string Xmlfile { get; }
 
         private void OnExecute()

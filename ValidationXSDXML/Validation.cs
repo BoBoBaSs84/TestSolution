@@ -9,11 +9,11 @@ namespace ValidationXSDXML
     public class Validation
     {
         public void Validate(string p_strXSD, string p_strXML)
-        {
-            
+        {            
             var path = new Uri(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)).LocalPath;
             XmlSchemaSet schema = new XmlSchemaSet();
             schema.Add("", path + "\\" + p_strXSD);
+
             XmlReader rd = XmlReader.Create(path + "\\" + p_strXML);
             XDocument doc = XDocument.Load(rd);
             
