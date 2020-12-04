@@ -10,20 +10,20 @@ namespace ValidationXSDXML
     {
         public void Validate(string p_strXSD, string p_strXML)
         {
+            
             var path = new Uri(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)).LocalPath;
             XmlSchemaSet schema = new XmlSchemaSet();
             schema.Add("", path + "\\" + p_strXSD);
             XmlReader rd = XmlReader.Create(path + "\\" + p_strXML);
             XDocument doc = XDocument.Load(rd);
-            doc.Validate(schema, ValidationEventHandler);
-        }
-        private void ValidationEventHandler(object sender, ValidationEventArgs e)
-        {
-            XmlSeverityType type = XmlSeverityType.Warning;
-            if (Enum.TryParse<XmlSeverityType>("Error", out type))
+            
+            bool errors = false;
+            doc.Validate(schema, (o, e) =>
             {
-                if (type == XmlSeverityType.Error) throw new Exception(e.Message);
-            }
+                Console.WriteLine("{0}", e.Message, o.ToString());
+                errors = true;
+            });
+            Console.WriteLine(p_strXML + " {0} ", errors ? "is not valid" : "is valid");
         }
     }
 }

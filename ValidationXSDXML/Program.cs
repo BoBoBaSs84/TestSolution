@@ -9,25 +9,25 @@ namespace ValidationXSDXML
     {
         static void Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
-        [Argument(0, Description = "XSD file")]
-        private string xsdfile { get; }
-        [Argument(1, Description ="XML file")]
-        private string xmlfile { get; }
+        [Argument(0, Description = "Path and/or name of the XSD file i.e. xsdfile.xsd")]
+        private string Xsdfile { get; }
+        [Argument(1, Description = "Path and/or name of the XML file i.e. xmlfile.xml")]
+        private string Xmlfile { get; }
 
         private void OnExecute()
         {
-            if(xsdfile == null)
+            if(Xsdfile == null)
             {
-                Console.WriteLine("specify the xsd file ... better start with the parameter -?");
+                Console.WriteLine("specify the xsd file (bla.xsd) ... better start with the parameter -?");
                 return;
             }
-            if (xmlfile == null)
+            if (Xmlfile == null)
             {
-                Console.WriteLine("specify the xml file ... better start with the parameter -?");
+                Console.WriteLine("specify the xml file (blub.xml) ... better start with the parameter -?");
                 return;
             }
             var validate = new Validation();
-            validate.Validate(xsdfile, xmlfile);
+            validate.Validate(Xsdfile, Xmlfile);
         }
     }
 }
