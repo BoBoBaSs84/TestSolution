@@ -1,4 +1,5 @@
 ﻿using System;
+using PieceOfTime.SqlContext.Models;
 
 namespace PieceOfTime.ConsoleApp
 {
