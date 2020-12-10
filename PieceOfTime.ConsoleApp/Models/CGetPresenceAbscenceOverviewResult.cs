@@ -7,19 +7,19 @@ namespace PieceOfTime.SqlContext.Models
 {
     public partial class CGetPresenceAbscenceOverviewResult
     {
-        public int? Year { get; set; }
-        public int? Month { get; set; }
-        public string MonthName { get; set; }
-        public int? Week { get; set; }
-        public DateTime? Date { get; set; }
-        public string DayName { get; set; }
-        public string DayType { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public double WorkingHours { get; set; }
-        public double OverHours { get; set; }
-        public int IdCalendarTable { get; set; }
-        public int? IdMitarbeiter { get; set; }
-        public int? IdOrganisation { get; set; }
+        public int? Year { get; }
+        public int? Month { get; }
+        public string MonthName { get; }
+        public int? Week { get; }
+        public DateTime? Date { get; }
+        public string DayName { get; }
+        public string DayType { get; }
+        public DateTime StartTime { get; }
+        public DateTime EndTime { get; }
+        public double WorkingHours { get; }
+        public double OverHours { get; }
+        public int IdCalendarTable { get; }
+        public int? IdMitarbeiter { get; }
+        public int? IdOrganisation { get; }
     }
 }

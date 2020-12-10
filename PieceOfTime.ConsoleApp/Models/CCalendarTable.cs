@@ -8,21 +8,21 @@ namespace PieceOfTime.SqlContext.Models
 {
     public partial class CCalendarTable
     {
-        public int Id { get; set; }
-        public int? IdDayType { get; set; }
-        public DateTime? Date { get; set; }
-        public decimal Factor { get; set; }
-        public string DayName { get; set; }
-        public int? Week { get; set; }
-        public int? Month { get; set; }
-        public string MonthName { get; set; }
-        public int? Year { get; set; }
-        public int? IsoWeek { get; set; }
-        public int? Quarter { get; set; }
-        public int? DayOfWeek { get; set; }
-        public int? DayOfMonth { get; set; }
-        public int? DayOfYear { get; set; }
-        public int? FiscalMonth { get; set; }
-        public int? FiscalYear { get; set; }
+        public int Id { get; }
+        public int? IdDayType { get; }
+        public DateTime? Date { get; }
+        public decimal Factor { get; }
+        public string DayName { get; }
+        public int? Week { get; }
+        public int? Month { get; }
+        public string MonthName { get; }
+        public int? Year { get; }
+        public int? IsoWeek { get; }
+        public int? Quarter { get; }
+        public int? DayOfWeek { get; }
+        public int? DayOfMonth { get; }
+        public int? DayOfYear { get; }
+        public int? FiscalMonth { get; }
+        public int? FiscalYear { get; }
     }
 }
