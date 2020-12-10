@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace PieceOfTime.SqlContext.Models
 {
-    public partial class PresenceAbsence
+    public partial class CPresenceAbsence
     {
         public int Id { get; set; }
         public int IdMitarbeiter { get; set; }

@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace PieceOfTime.SqlContext.Models
 {
-    public partial class EmployeeWeeklyWorkingHours
+    public partial class CEmployeeAvailableVacation
     {
         public int Id { get; set; }
         public int IdMitarbeiter { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTill { get; set; }
-        public double WorkingHours { get; set; }
+        public int VacationDays { get; set; }
     }
 }

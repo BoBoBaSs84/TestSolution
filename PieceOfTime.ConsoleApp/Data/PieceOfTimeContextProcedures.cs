@@ -17,7 +17,7 @@ namespace PieceOfTime.SqlContext.Data
             _context = context;
         }
 
-        public async Task<GetPresenceAbscenceOverviewResult[]> GetPresenceAbscenceOverview(string Login, DateTime? DateFrom, DateTime? DateTill, OutputParameter<int> returnValue = null)
+        public async Task<CGetPresenceAbscenceOverviewResult[]> GetPresenceAbscenceOverview(string Login, DateTime? DateFrom, DateTime? DateTill, OutputParameter<int> returnValue = null)
         {
             var parameterLogin = new SqlParameter
             {
@@ -48,7 +48,7 @@ namespace PieceOfTime.SqlContext.Data
                 SqlDbType = System.Data.SqlDbType.Int,
             };
 
-            var _ = await _context.SqlQuery<GetPresenceAbscenceOverviewResult>("EXEC @returnValue = [app].[GetPresenceAbscenceOverview] @Login, @DateFrom, @DateTill", parameterLogin, parameterDateFrom, parameterDateTill, parameterreturnValue);
+            var _ = await _context.SqlQuery<CGetPresenceAbscenceOverviewResult>("EXEC @returnValue = [app].[GetPresenceAbscenceOverview] @Login, @DateFrom, @DateTill", parameterLogin, parameterDateFrom, parameterDateTill, parameterreturnValue);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

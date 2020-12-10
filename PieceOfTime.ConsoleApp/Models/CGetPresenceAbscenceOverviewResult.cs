@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PieceOfTime.SqlContext.Models
 {
-    public partial class GetPresenceAbscenceOverviewResult
+    public partial class CGetPresenceAbscenceOverviewResult
     {
         public int? Year { get; set; }
         public int? Month { get; set; }

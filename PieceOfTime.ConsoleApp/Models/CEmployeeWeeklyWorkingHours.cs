@@ -6,9 +6,12 @@ using System.Collections.Generic;
 
 namespace PieceOfTime.SqlContext.Models
 {
-    public partial class DayTypes
+    public partial class CEmployeeWeeklyWorkingHours
     {
         public int Id { get; set; }
-        public string DayType { get; set; }
+        public int IdMitarbeiter { get; set; }
+        public DateTime DateFrom { get; set; }
+        public DateTime DateTill { get; set; }
+        public double WorkingHours { get; set; }
     }
 }

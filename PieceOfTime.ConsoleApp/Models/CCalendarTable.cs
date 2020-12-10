@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace PieceOfTime.SqlContext.Models
 {
-    public partial class CalendarTable
+    public partial class CCalendarTable
     {
         public int Id { get; set; }
         public int? IdDayType { get; set; }

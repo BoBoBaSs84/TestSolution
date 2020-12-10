@@ -20,12 +20,12 @@ namespace PieceOfTime.SqlContext.Data
         {
         }
 
-        public virtual DbSet<CalendarTable> CalendarTable { get; set; }
-        public virtual DbSet<DayTypes> DayTypes { get; set; }
-        public virtual DbSet<EmployeeAvailableVacation> EmployeeAvailableVacation { get; set; }
-        public virtual DbSet<EmployeeWeeklyWorkingHours> EmployeeWeeklyWorkingHours { get; set; }
-        public virtual DbSet<GetEmployeInfo> GetEmployeInfo { get; set; }
-        public virtual DbSet<PresenceAbsence> PresenceAbsence { get; set; }
+        public virtual DbSet<CCalendarTable> CalendarTable { get; set; }
+        public virtual DbSet<CDayTypes> DayTypes { get; set; }
+        public virtual DbSet<CEmployeeAvailableVacation> EmployeeAvailableVacation { get; set; }
+        public virtual DbSet<CEmployeeWeeklyWorkingHours> EmployeeWeeklyWorkingHours { get; set; }
+        public virtual DbSet<CGetEmployeInfo> GetEmployeInfo { get; set; }
+        public virtual DbSet<CPresenceAbsence> PresenceAbsence { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,7 +37,7 @@ namespace PieceOfTime.SqlContext.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CalendarTable>(entity =>
+            modelBuilder.Entity<CCalendarTable>(entity =>
             {
                 entity.HasNoKey();
 
@@ -56,7 +56,7 @@ namespace PieceOfTime.SqlContext.Data
                 entity.Property(e => e.MonthName).HasMaxLength(30);
             });
 
-            modelBuilder.Entity<DayTypes>(entity =>
+            modelBuilder.Entity<CDayTypes>(entity =>
             {
                 entity.HasNoKey();
 
@@ -69,7 +69,7 @@ namespace PieceOfTime.SqlContext.Data
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<EmployeeAvailableVacation>(entity =>
+            modelBuilder.Entity<CEmployeeAvailableVacation>(entity =>
             {
                 entity.HasNoKey();
 
@@ -82,7 +82,7 @@ namespace PieceOfTime.SqlContext.Data
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<EmployeeWeeklyWorkingHours>(entity =>
+            modelBuilder.Entity<CEmployeeWeeklyWorkingHours>(entity =>
             {
                 entity.HasNoKey();
 
@@ -95,7 +95,7 @@ namespace PieceOfTime.SqlContext.Data
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<GetEmployeInfo>(entity =>
+            modelBuilder.Entity<CGetEmployeInfo>(entity =>
             {
                 entity.HasNoKey();
 
@@ -128,7 +128,7 @@ namespace PieceOfTime.SqlContext.Data
                 entity.Property(e => e.Telephone).HasMaxLength(30);
             });
 
-            modelBuilder.Entity<PresenceAbsence>(entity =>
+            modelBuilder.Entity<CPresenceAbsence>(entity =>
             {
                 entity.HasNoKey();
 
