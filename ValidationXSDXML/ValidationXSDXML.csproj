@@ -23,10 +23,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>mk.xsd</DependentUpon>
     </Compile>
-    <Compile Update="misc\PresenceAbsence.Designer.cs">
+    <Compile Update="misc\PresenceAbsenceSchema.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>PresenceAbsence.xsd</DependentUpon>
+      <DependentUpon>PresenceAbsenceSchema.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -39,9 +39,9 @@
       <LastGenOutput>mk.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="misc\PresenceAbsence.xsd">
+    <None Update="misc\PresenceAbsenceSchema.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PresenceAbsence.Designer.cs</LastGenOutput>
+      <LastGenOutput>PresenceAbsenceSchema.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

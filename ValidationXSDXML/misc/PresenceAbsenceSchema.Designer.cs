@@ -130,7 +130,7 @@ namespace ValidationXSDXML.misc {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PresenceAbsenceDataTable PresenceAbsence {
+        public PresenceAbsenceDataTable presenceAbsence {
             get {
                 return this.tablePresenceAbsence;
             }
