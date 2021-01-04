@@ -18,11 +18,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="misc\PresenceAbsenceSchema.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PresenceAbsenceSchema.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="misc\PresenceAbsence.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="misc\PresenceAbsenceSchema.xsd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PresenceAbsenceSchema.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
