@@ -32,7 +32,7 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         private string gIDField;
 
-        private string idOrganisationField;
+        private int idOrganisationField;
 
         private createIdDayType idDayTypeField;
 
@@ -43,7 +43,7 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
         public create()
         {
             this.gIDField = "Z0024KJP";
-            this.idOrganisationField = "61";
+            this.idOrganisationField = 61;
             this.idDayTypeField = createIdDayType.Item1;
             this.startTimeField = new System.DateTime(216000000000);
             this.endTimeField = new System.DateTime(516600000000);
@@ -95,7 +95,7 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "positiveInteger")]
         [System.ComponentModel.DefaultValueAttribute("61")]
-        public string IdOrganisation
+        public int IdOrganisation
         {
             get
             {
