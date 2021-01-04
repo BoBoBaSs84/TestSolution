@@ -282,7 +282,6 @@ namespace ValidationXSDXML.misc {
         private void InitClass() {
             this.DataSetName = "PresenceAbsence";
             this.Prefix = "";
-            this.Namespace = "http://aquaris.siemens.net/PresenceAbsence.xsd";
             this.Locale = new global::System.Globalization.CultureInfo("");
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
