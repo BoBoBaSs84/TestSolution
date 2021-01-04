@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PresenceAbsence Version="1.0d">
+<PresenceAbsence Version="1.0"
+	xmlns="http://aquaris.siemens.net/PresenceAbsence">
 	<create Date="1900-01-01" GID="Z0024KJP" IdOrganisation="61" IdDayType="1" StartTime="06:00:00" EndTime="14:21:00" />
 	<update Date="1900-01-01" GID="Z0024KJP" IdOrganisation="61" IdDayType="1" StartTime="06:00:00" EndTime="14:21:00" />
 	<delete Date="1900-01-01" GID="Z0024KJP" IdOrganisation="61" />
