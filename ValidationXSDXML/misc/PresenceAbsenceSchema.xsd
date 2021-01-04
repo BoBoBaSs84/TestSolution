@@ -4,20 +4,34 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<xsd:attributeGroup name="ba" id="ba">
 		<xsd:attribute name="Date" type="xsd:date" id="date" />
-		<xsd:attribute name="GID">
+		<xsd:attribute name="GID" id="gid">
 			<xsd:simpleType>
-				<xsd:restriction base="xsd:string" id="gid">
+				<xsd:restriction base="xsd:string">
 					<xsd:pattern value="[A-Z0-9]{8}" />
 				</xsd:restriction>
 			</xsd:simpleType>
 		</xsd:attribute>
-		<xsd:attribute name="Organisation" type="xsd:string" id="organisation"/>
+		<xsd:attribute name="Organisation" id="organisation">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1"/>
+					<xsd:maxLength value="500"/>
+				</xsd:restriction>				
+			</xsd:simpleType>
+		</xsd:attribute>
 	</xsd:attributeGroup>
 	<xsd:attributeGroup name="oa" id="oa">
 		<xsd:attribute name="DayType" id="daytype">
 			<xsd:simpleType>
 				<xsd:restriction base="xsd:string">
-					<xsd:pattern value="[A-Za-z]{50}"/>
+					<xsd:enumeration value="Workday"/>
+					<xsd:enumeration value="Weekend"/>
+					<xsd:enumeration value="Sickness"/>
+					<xsd:enumeration value="Holiday"/>
+					<xsd:enumeration value="Planned Vacation"/>
+					<xsd:enumeration value="Vacation"/>
+					<xsd:enumeration value="Absence"/>
+					<xsd:enumeration value="Short-time"/>
 				</xsd:restriction>
 			</xsd:simpleType>
 		</xsd:attribute>

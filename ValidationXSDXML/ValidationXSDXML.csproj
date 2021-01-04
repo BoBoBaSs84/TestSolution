@@ -18,30 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="misc\mk.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>mk.xsd</DependentUpon>
-    </Compile>
-    <Compile Update="misc\PresenceAbsenceSchema.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PresenceAbsenceSchema.xsd</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="misc\102865640.xml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="misc\mk.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>mk.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    <None Update="misc\PresenceAbsence.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="misc\PresenceAbsenceSchema.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PresenceAbsenceSchema.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
