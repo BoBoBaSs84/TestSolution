@@ -9,13 +9,12 @@ namespace ValidationXSDXML
     {
         public void CreateXml()
         {
-            var pa = new PresenceAbsence();            
-
-            var serializer = new XmlSerializer(typeof(PresenceAbsence));
-            using (var stream = new StreamWriter("D:\\Text.xml"))
-            {
-                serializer.Serialize(stream, pa);
-            }
+            var pa = new PresenceAbsence.paDataTable();
+            pa.AddpaRow("1,0");
+            var cr = new PresenceAbsence.createDataTable();
+            cr.AddcreateRow(DateTime.Now, "", 61, 1, DateTime.Now, DateTime.Now, pa[0]);
+            var up = new PresenceAbsence.updateDataTable();
+            var de = new PresenceAbsence.deleteDataTable();
         }
     }
 }

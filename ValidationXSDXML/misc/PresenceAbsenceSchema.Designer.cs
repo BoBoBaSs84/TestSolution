@@ -282,7 +282,7 @@ namespace ValidationXSDXML.misc {
         private void InitClass() {
             this.DataSetName = "PresenceAbsence";
             this.Prefix = "";
-            this.Namespace = "https://aquaris.siemens.net/PresenceAbsence.xsd";
+            this.Namespace = "http://aquaris.siemens.net/PresenceAbsence.xsd";
             this.Locale = new global::System.Globalization.CultureInfo("");
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -435,9 +435,9 @@ namespace ValidationXSDXML.misc {
             
             private global::System.Data.DataColumn columnGID;
             
-            private global::System.Data.DataColumn columnOrganisation;
+            private global::System.Data.DataColumn columnIdOrganisation;
             
-            private global::System.Data.DataColumn columnDayType;
+            private global::System.Data.DataColumn columnIdDayType;
             
             private global::System.Data.DataColumn columnStartTime;
             
@@ -445,9 +445,9 @@ namespace ValidationXSDXML.misc {
             
             private global::System.Data.DataColumn columnpa_Id;
             
-            private static System.DateTime columnStartTime_defaultValue = global::System.DateTime.Parse("2021-01-04T00:00:00");
+            private static System.DateTime columnStartTime_defaultValue = global::System.DateTime.Parse("2021-01-04T06:00:00");
             
-            private static System.DateTime columnEndTime_defaultValue = global::System.DateTime.Parse("2021-01-04T00:00:00");
+            private static System.DateTime columnEndTime_defaultValue = global::System.DateTime.Parse("2021-01-04T14:21:00");
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -500,17 +500,17 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OrganisationColumn {
+            public global::System.Data.DataColumn IdOrganisationColumn {
                 get {
-                    return this.columnOrganisation;
+                    return this.columnIdOrganisation;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DayTypeColumn {
+            public global::System.Data.DataColumn IdDayTypeColumn {
                 get {
-                    return this.columnDayType;
+                    return this.columnIdDayType;
                 }
             }
             
@@ -575,13 +575,13 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public createRow AddcreateRow(System.DateTime Date, string GID, string Organisation, string DayType, System.DateTime StartTime, System.DateTime EndTime, paRow parentpaRowBypa_create) {
+            public createRow AddcreateRow(System.DateTime Date, string GID, ulong IdOrganisation, ulong IdDayType, System.DateTime StartTime, System.DateTime EndTime, paRow parentpaRowBypa_create) {
                 createRow rowcreateRow = ((createRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date,
                         GID,
-                        Organisation,
-                        DayType,
+                        IdOrganisation,
+                        IdDayType,
                         StartTime,
                         EndTime,
                         null};
@@ -612,8 +612,8 @@ namespace ValidationXSDXML.misc {
             internal void InitVars() {
                 this.columnDate = base.Columns["Date"];
                 this.columnGID = base.Columns["GID"];
-                this.columnOrganisation = base.Columns["Organisation"];
-                this.columnDayType = base.Columns["DayType"];
+                this.columnIdOrganisation = base.Columns["IdOrganisation"];
+                this.columnIdDayType = base.Columns["IdDayType"];
                 this.columnStartTime = base.Columns["StartTime"];
                 this.columnEndTime = base.Columns["EndTime"];
                 this.columnpa_Id = base.Columns["pa_Id"];
@@ -626,10 +626,10 @@ namespace ValidationXSDXML.misc {
                 base.Columns.Add(this.columnDate);
                 this.columnGID = new global::System.Data.DataColumn("GID", typeof(string), null, global::System.Data.MappingType.Attribute);
                 base.Columns.Add(this.columnGID);
-                this.columnOrganisation = new global::System.Data.DataColumn("Organisation", typeof(string), null, global::System.Data.MappingType.Attribute);
-                base.Columns.Add(this.columnOrganisation);
-                this.columnDayType = new global::System.Data.DataColumn("DayType", typeof(string), null, global::System.Data.MappingType.Attribute);
-                base.Columns.Add(this.columnDayType);
+                this.columnIdOrganisation = new global::System.Data.DataColumn("IdOrganisation", typeof(ulong), null, global::System.Data.MappingType.Attribute);
+                base.Columns.Add(this.columnIdOrganisation);
+                this.columnIdDayType = new global::System.Data.DataColumn("IdDayType", typeof(ulong), null, global::System.Data.MappingType.Attribute);
+                base.Columns.Add(this.columnIdDayType);
                 this.columnStartTime = new global::System.Data.DataColumn("StartTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Attribute);
                 base.Columns.Add(this.columnStartTime);
                 this.columnEndTime = new global::System.Data.DataColumn("EndTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Attribute);
@@ -638,9 +638,11 @@ namespace ValidationXSDXML.misc {
                 base.Columns.Add(this.columnpa_Id);
                 this.columnDate.Namespace = "";
                 this.columnGID.Namespace = "";
-                this.columnOrganisation.Namespace = "";
-                this.columnOrganisation.MaxLength = 500;
-                this.columnDayType.Namespace = "";
+                this.columnGID.DefaultValue = ((string)("Z0024KJP"));
+                this.columnIdOrganisation.Namespace = "";
+                this.columnIdOrganisation.DefaultValue = ((ulong)(61ul));
+                this.columnIdDayType.Namespace = "";
+                this.columnIdDayType.DefaultValue = ((ulong)(1ul));
                 this.columnStartTime.Namespace = "";
                 this.columnStartTime.DefaultValue = ((System.DateTime)(createDataTable.columnStartTime_defaultValue));
                 this.columnEndTime.Namespace = "";
@@ -782,9 +784,9 @@ namespace ValidationXSDXML.misc {
             
             private global::System.Data.DataColumn columnGID;
             
-            private global::System.Data.DataColumn columnOrganisation;
+            private global::System.Data.DataColumn columnIdOrganisation;
             
-            private global::System.Data.DataColumn columnDayType;
+            private global::System.Data.DataColumn columnIdDayType;
             
             private global::System.Data.DataColumn columnStartTime;
             
@@ -792,9 +794,9 @@ namespace ValidationXSDXML.misc {
             
             private global::System.Data.DataColumn columnpa_Id;
             
-            private static System.DateTime columnStartTime_defaultValue = global::System.DateTime.Parse("2021-01-04T00:00:00");
+            private static System.DateTime columnStartTime_defaultValue = global::System.DateTime.Parse("2021-01-04T06:00:00");
             
-            private static System.DateTime columnEndTime_defaultValue = global::System.DateTime.Parse("2021-01-04T00:00:00");
+            private static System.DateTime columnEndTime_defaultValue = global::System.DateTime.Parse("2021-01-04T14:21:00");
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -847,17 +849,17 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OrganisationColumn {
+            public global::System.Data.DataColumn IdOrganisationColumn {
                 get {
-                    return this.columnOrganisation;
+                    return this.columnIdOrganisation;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DayTypeColumn {
+            public global::System.Data.DataColumn IdDayTypeColumn {
                 get {
-                    return this.columnDayType;
+                    return this.columnIdDayType;
                 }
             }
             
@@ -922,13 +924,13 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public updateRow AddupdateRow(System.DateTime Date, string GID, string Organisation, string DayType, System.DateTime StartTime, System.DateTime EndTime, paRow parentpaRowBypa_update) {
+            public updateRow AddupdateRow(System.DateTime Date, string GID, ulong IdOrganisation, ulong IdDayType, System.DateTime StartTime, System.DateTime EndTime, paRow parentpaRowBypa_update) {
                 updateRow rowupdateRow = ((updateRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date,
                         GID,
-                        Organisation,
-                        DayType,
+                        IdOrganisation,
+                        IdDayType,
                         StartTime,
                         EndTime,
                         null};
@@ -959,8 +961,8 @@ namespace ValidationXSDXML.misc {
             internal void InitVars() {
                 this.columnDate = base.Columns["Date"];
                 this.columnGID = base.Columns["GID"];
-                this.columnOrganisation = base.Columns["Organisation"];
-                this.columnDayType = base.Columns["DayType"];
+                this.columnIdOrganisation = base.Columns["IdOrganisation"];
+                this.columnIdDayType = base.Columns["IdDayType"];
                 this.columnStartTime = base.Columns["StartTime"];
                 this.columnEndTime = base.Columns["EndTime"];
                 this.columnpa_Id = base.Columns["pa_Id"];
@@ -973,10 +975,10 @@ namespace ValidationXSDXML.misc {
                 base.Columns.Add(this.columnDate);
                 this.columnGID = new global::System.Data.DataColumn("GID", typeof(string), null, global::System.Data.MappingType.Attribute);
                 base.Columns.Add(this.columnGID);
-                this.columnOrganisation = new global::System.Data.DataColumn("Organisation", typeof(string), null, global::System.Data.MappingType.Attribute);
-                base.Columns.Add(this.columnOrganisation);
-                this.columnDayType = new global::System.Data.DataColumn("DayType", typeof(string), null, global::System.Data.MappingType.Attribute);
-                base.Columns.Add(this.columnDayType);
+                this.columnIdOrganisation = new global::System.Data.DataColumn("IdOrganisation", typeof(ulong), null, global::System.Data.MappingType.Attribute);
+                base.Columns.Add(this.columnIdOrganisation);
+                this.columnIdDayType = new global::System.Data.DataColumn("IdDayType", typeof(ulong), null, global::System.Data.MappingType.Attribute);
+                base.Columns.Add(this.columnIdDayType);
                 this.columnStartTime = new global::System.Data.DataColumn("StartTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Attribute);
                 base.Columns.Add(this.columnStartTime);
                 this.columnEndTime = new global::System.Data.DataColumn("EndTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Attribute);
@@ -985,9 +987,11 @@ namespace ValidationXSDXML.misc {
                 base.Columns.Add(this.columnpa_Id);
                 this.columnDate.Namespace = "";
                 this.columnGID.Namespace = "";
-                this.columnOrganisation.Namespace = "";
-                this.columnOrganisation.MaxLength = 500;
-                this.columnDayType.Namespace = "";
+                this.columnGID.DefaultValue = ((string)("Z0024KJP"));
+                this.columnIdOrganisation.Namespace = "";
+                this.columnIdOrganisation.DefaultValue = ((ulong)(61ul));
+                this.columnIdDayType.Namespace = "";
+                this.columnIdDayType.DefaultValue = ((ulong)(1ul));
                 this.columnStartTime.Namespace = "";
                 this.columnStartTime.DefaultValue = ((System.DateTime)(updateDataTable.columnStartTime_defaultValue));
                 this.columnEndTime.Namespace = "";
@@ -1129,7 +1133,7 @@ namespace ValidationXSDXML.misc {
             
             private global::System.Data.DataColumn columnGID;
             
-            private global::System.Data.DataColumn columnOrganisation;
+            private global::System.Data.DataColumn columnIdOrganisation;
             
             private global::System.Data.DataColumn columnpa_Id;
             
@@ -1184,9 +1188,9 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OrganisationColumn {
+            public global::System.Data.DataColumn IdOrganisationColumn {
                 get {
-                    return this.columnOrganisation;
+                    return this.columnIdOrganisation;
                 }
             }
             
@@ -1235,12 +1239,12 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public deleteRow AdddeleteRow(System.DateTime Date, string GID, string Organisation, paRow parentpaRowBypa_delete) {
+            public deleteRow AdddeleteRow(System.DateTime Date, string GID, ulong IdOrganisation, paRow parentpaRowBypa_delete) {
                 deleteRow rowdeleteRow = ((deleteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date,
                         GID,
-                        Organisation,
+                        IdOrganisation,
                         null};
                 if ((parentpaRowBypa_delete != null)) {
                     columnValuesArray[3] = parentpaRowBypa_delete[1];
@@ -1269,7 +1273,7 @@ namespace ValidationXSDXML.misc {
             internal void InitVars() {
                 this.columnDate = base.Columns["Date"];
                 this.columnGID = base.Columns["GID"];
-                this.columnOrganisation = base.Columns["Organisation"];
+                this.columnIdOrganisation = base.Columns["IdOrganisation"];
                 this.columnpa_Id = base.Columns["pa_Id"];
             }
             
@@ -1280,14 +1284,15 @@ namespace ValidationXSDXML.misc {
                 base.Columns.Add(this.columnDate);
                 this.columnGID = new global::System.Data.DataColumn("GID", typeof(string), null, global::System.Data.MappingType.Attribute);
                 base.Columns.Add(this.columnGID);
-                this.columnOrganisation = new global::System.Data.DataColumn("Organisation", typeof(string), null, global::System.Data.MappingType.Attribute);
-                base.Columns.Add(this.columnOrganisation);
+                this.columnIdOrganisation = new global::System.Data.DataColumn("IdOrganisation", typeof(ulong), null, global::System.Data.MappingType.Attribute);
+                base.Columns.Add(this.columnIdOrganisation);
                 this.columnpa_Id = new global::System.Data.DataColumn("pa_Id", typeof(int), null, global::System.Data.MappingType.Hidden);
                 base.Columns.Add(this.columnpa_Id);
                 this.columnDate.Namespace = "";
                 this.columnGID.Namespace = "";
-                this.columnOrganisation.Namespace = "";
-                this.columnOrganisation.MaxLength = 500;
+                this.columnGID.DefaultValue = ((string)("Z0024KJP"));
+                this.columnIdOrganisation.Namespace = "";
+                this.columnIdOrganisation.DefaultValue = ((ulong)(61ul));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1552,6 +1557,7 @@ namespace ValidationXSDXML.misc {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnpa_Id}, true));
                 this.columnVersion.Namespace = "";
+                this.columnVersion.DefaultValue = ((string)("1.0d"));
                 this.columnVersion.MaxLength = 15;
                 this.columnpa_Id.AutoIncrement = true;
                 this.columnpa_Id.AllowDBNull = false;
@@ -1730,33 +1736,33 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Organisation {
+            public ulong IdOrganisation {
                 get {
                     try {
-                        return ((string)(this[this.tablecreate.OrganisationColumn]));
+                        return ((ulong)(this[this.tablecreate.IdOrganisationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Organisation\' in table \'create\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IdOrganisation\' in table \'create\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablecreate.OrganisationColumn] = value;
+                    this[this.tablecreate.IdOrganisationColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DayType {
+            public ulong IdDayType {
                 get {
                     try {
-                        return ((string)(this[this.tablecreate.DayTypeColumn]));
+                        return ((ulong)(this[this.tablecreate.IdDayTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DayType\' in table \'create\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IdDayType\' in table \'create\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablecreate.DayTypeColumn] = value;
+                    this[this.tablecreate.IdDayTypeColumn] = value;
                 }
             }
             
@@ -1845,26 +1851,26 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrganisationNull() {
-                return this.IsNull(this.tablecreate.OrganisationColumn);
+            public bool IsIdOrganisationNull() {
+                return this.IsNull(this.tablecreate.IdOrganisationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrganisationNull() {
-                this[this.tablecreate.OrganisationColumn] = global::System.Convert.DBNull;
+            public void SetIdOrganisationNull() {
+                this[this.tablecreate.IdOrganisationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDayTypeNull() {
-                return this.IsNull(this.tablecreate.DayTypeColumn);
+            public bool IsIdDayTypeNull() {
+                return this.IsNull(this.tablecreate.IdDayTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDayTypeNull() {
-                this[this.tablecreate.DayTypeColumn] = global::System.Convert.DBNull;
+            public void SetIdDayTypeNull() {
+                this[this.tablecreate.IdDayTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1952,33 +1958,33 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Organisation {
+            public ulong IdOrganisation {
                 get {
                     try {
-                        return ((string)(this[this.tableupdate.OrganisationColumn]));
+                        return ((ulong)(this[this.tableupdate.IdOrganisationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Organisation\' in table \'update\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IdOrganisation\' in table \'update\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableupdate.OrganisationColumn] = value;
+                    this[this.tableupdate.IdOrganisationColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DayType {
+            public ulong IdDayType {
                 get {
                     try {
-                        return ((string)(this[this.tableupdate.DayTypeColumn]));
+                        return ((ulong)(this[this.tableupdate.IdDayTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DayType\' in table \'update\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IdDayType\' in table \'update\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableupdate.DayTypeColumn] = value;
+                    this[this.tableupdate.IdDayTypeColumn] = value;
                 }
             }
             
@@ -2067,26 +2073,26 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrganisationNull() {
-                return this.IsNull(this.tableupdate.OrganisationColumn);
+            public bool IsIdOrganisationNull() {
+                return this.IsNull(this.tableupdate.IdOrganisationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrganisationNull() {
-                this[this.tableupdate.OrganisationColumn] = global::System.Convert.DBNull;
+            public void SetIdOrganisationNull() {
+                this[this.tableupdate.IdOrganisationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDayTypeNull() {
-                return this.IsNull(this.tableupdate.DayTypeColumn);
+            public bool IsIdDayTypeNull() {
+                return this.IsNull(this.tableupdate.IdDayTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDayTypeNull() {
-                this[this.tableupdate.DayTypeColumn] = global::System.Convert.DBNull;
+            public void SetIdDayTypeNull() {
+                this[this.tableupdate.IdDayTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2174,17 +2180,17 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Organisation {
+            public ulong IdOrganisation {
                 get {
                     try {
-                        return ((string)(this[this.tabledelete.OrganisationColumn]));
+                        return ((ulong)(this[this.tabledelete.IdOrganisationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Organisation\' in table \'delete\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IdOrganisation\' in table \'delete\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledelete.OrganisationColumn] = value;
+                    this[this.tabledelete.IdOrganisationColumn] = value;
                 }
             }
             
@@ -2241,14 +2247,14 @@ namespace ValidationXSDXML.misc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrganisationNull() {
-                return this.IsNull(this.tabledelete.OrganisationColumn);
+            public bool IsIdOrganisationNull() {
+                return this.IsNull(this.tabledelete.IdOrganisationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrganisationNull() {
-                this[this.tabledelete.OrganisationColumn] = global::System.Convert.DBNull;
+            public void SetIdOrganisationNull() {
+                this[this.tabledelete.IdOrganisationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

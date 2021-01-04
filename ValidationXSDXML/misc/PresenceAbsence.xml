@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pa Version="Version1" xmlns="https://aquaris.siemens.net/PresenceAbsence.xsd">
-  <create Date="1900-01-01" GID="Z0024KJP" Organisation="Organisation1" DayType="Workday" StartTime="00:00:00" EndTime="00:00:00" />
-  <update Date="1900-01-01" GID="Z0024KJP" Organisation="Organisation1" DayType="Workday" StartTime="00:00:00" EndTime="00:00:00" />
-  <delete Date="1900-01-01" GID="Z0024KJP" Organisation="Organisation1" />
+<pa Version="1.0d" xmlns="http://aquaris.siemens.net/PresenceAbsence.xsd">
+  <create Date="1900-01-01" GID="Z0024KJP" IdOrganisation="61" IdDayType="1" StartTime="06:00:00" EndTime="14:21:00" />
+  <update Date="1900-01-01" GID="Z0024KJP" IdOrganisation="61" IdDayType="1" StartTime="06:00:00" EndTime="14:21:00" />
+  <delete Date="1900-01-01" GID="Z0024KJP" IdOrganisation="61" />
 </pa>
