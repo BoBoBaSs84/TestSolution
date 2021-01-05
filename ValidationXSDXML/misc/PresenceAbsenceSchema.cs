@@ -40,8 +40,8 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         public create()
         {
-            this.starttimeField = new System.DateTime(216000000000);
-            this.endtimeField = new System.DateTime(516600000000);
+            this.starttimeField = new System.DateTime(0);
+            this.endtimeField = new System.DateTime(0);
         }
 
         /// <remarks/>
@@ -102,7 +102,7 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
-        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T06:00:00")]
+        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T00:00:00")]
         public System.DateTime starttime
         {
             get
@@ -117,7 +117,7 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
-        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T14:21:00")]
+        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T00:00:00")]
         public System.DateTime endtime
         {
             get
@@ -155,8 +155,8 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         public update()
         {
-            this.starttimeField = new System.DateTime(216000000000);
-            this.endtimeField = new System.DateTime(516600000000);
+            this.starttimeField = new System.DateTime(0);
+            this.endtimeField = new System.DateTime(0);
         }
 
         /// <remarks/>
@@ -217,7 +217,7 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
-        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T06:00:00")]
+        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T00:00:00")]
         public System.DateTime starttime
         {
             get
@@ -232,7 +232,7 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
-        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T14:21:00")]
+        [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T00:00:00")]
         public System.DateTime endtime
         {
             get
@@ -315,7 +315,11 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
     public partial class PresenceAbsence
     {
 
-        private object[] itemsField;
+        private create[] createField;
+
+        private update[] updateField;
+
+        private delete[] deleteField;
 
         private string versionField;
 
@@ -325,18 +329,44 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("create", typeof(create))]
-        [System.Xml.Serialization.XmlElementAttribute("delete", typeof(delete))]
-        [System.Xml.Serialization.XmlElementAttribute("update", typeof(update))]
-        public object[] Items
+        [System.Xml.Serialization.XmlElementAttribute("create")]
+        public create[] create
         {
             get
             {
-                return this.itemsField;
+                return this.createField;
             }
             set
             {
-                this.itemsField = value;
+                this.createField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("update")]
+        public update[] update
+        {
+            get
+            {
+                return this.updateField;
+            }
+            set
+            {
+                this.updateField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("delete")]
+        public delete[] delete
+        {
+            get
+            {
+                return this.deleteField;
+            }
+            set
+            {
+                this.deleteField = value;
             }
         }
 

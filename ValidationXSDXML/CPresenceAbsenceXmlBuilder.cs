@@ -10,22 +10,23 @@ namespace ValidationXSDXML
         public void CreateXml()
         {
             var pa =
-                new PresenceAbsence() { version = "1.0.1" };
+                new PresenceAbsence() { version = "1.0.0" };
 
-            pa.Items = new create[1];
-            pa.Items[0] = AddCreateToXml(DateTime.Now, "Z0024KJP", 61, 1, DateTime.Now, DateTime.Now);
-            Console.WriteLine("Create");
-
-            pa.Items = new update[2];
-            pa.Items[1] = AddUpdateToXml(DateTime.Now, "Z0024KJP", 61, 1, DateTime.Now, DateTime.Now);
-            Console.WriteLine("Update");
-
-            pa.Items = new delete[3];
-            pa.Items[2] = AddDeletetoXml(DateTime.Now, "Z0024KJP", 61);
-            Console.WriteLine("Delete");
+            pa.create = new create[1] 
+            {
+                (create)AddCreateToXml(DateTime.Now, "Z0024KJP", 61, 1, DateTime.Now, DateTime.Now) 
+            };
+            pa.update = new update[1]
+            {
+                (update)AddUpdateToXml(DateTime.Now, "Z0024KJP", 61, 1, DateTime.Now, DateTime.Now)
+            };
+            pa.delete = new delete[1]
+            {
+                (delete)AddDeletetoXml(DateTime.Now, "Z0024KJP", 61)
+            };
 
             var serializer = new XmlSerializer(typeof(PresenceAbsence));
-            using (var stream = new StreamWriter("D:\\Test.xml"))
+            using (var stream = new StreamWriter("D:\\CSC\\TestSolution\\ValidationXSDXML\\bin\\Debug\\netcoreapp3.1\\misc\\Test.xml"))
             {
                 serializer.Serialize(stream, pa);
             }
