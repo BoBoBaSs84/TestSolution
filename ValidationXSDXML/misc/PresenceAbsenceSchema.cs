@@ -21,37 +21,32 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://aquaris.siemens.net/PresenceAbsence")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://aquaris.siemens.net/PresenceAbsence", IsNullable = false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
     public partial class create
     {
 
         private System.DateTime dateField;
 
-        private bool dateFieldSpecified;
+        private string gidField;
 
-        private string gIDField;
+        private string idorganisationField;
 
-        private int idOrganisationField;
+        private string iddaytypeField;
 
-        private createIdDayType idDayTypeField;
+        private System.DateTime starttimeField;
 
-        private System.DateTime startTimeField;
-
-        private System.DateTime endTimeField;
+        private System.DateTime endtimeField;
 
         public create()
         {
-            this.gIDField = "Z0024KJP";
-            this.idOrganisationField = 61;
-            this.idDayTypeField = createIdDayType.Item1;
-            this.startTimeField = new System.DateTime(216000000000);
-            this.endTimeField = new System.DateTime(516600000000);
+            this.starttimeField = new System.DateTime(216000000000);
+            this.endtimeField = new System.DateTime(516600000000);
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "date")]
-        public System.DateTime Date
+        public System.DateTime date
         {
             get
             {
@@ -64,133 +59,76 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool DateSpecified
-        {
-            get
-            {
-                return this.dateFieldSpecified;
-            }
-            set
-            {
-                this.dateFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
-        [System.ComponentModel.DefaultValueAttribute("Z0024KJP")]
-        public string GID
+        public string gid
         {
             get
             {
-                return this.gIDField;
+                return this.gidField;
             }
             set
             {
-                this.gIDField = value;
+                this.gidField = value;
             }
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "positiveInteger")]
-        [System.ComponentModel.DefaultValueAttribute("61")]
-        public int IdOrganisation
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "integer")]
+        public string idorganisation
         {
             get
             {
-                return this.idOrganisationField;
+                return this.idorganisationField;
             }
             set
             {
-                this.idOrganisationField = value;
+                this.idorganisationField = value;
             }
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
-        [System.ComponentModel.DefaultValueAttribute(createIdDayType.Item1)]
-        public createIdDayType IdDayType
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "integer")]
+        public string iddaytype
         {
             get
             {
-                return this.idDayTypeField;
+                return this.iddaytypeField;
             }
             set
             {
-                this.idDayTypeField = value;
+                this.iddaytypeField = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
         [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T06:00:00")]
-        public System.DateTime StartTime
+        public System.DateTime starttime
         {
             get
             {
-                return this.startTimeField;
+                return this.starttimeField;
             }
             set
             {
-                this.startTimeField = value;
+                this.starttimeField = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
         [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T14:21:00")]
-        public System.DateTime EndTime
+        public System.DateTime endtime
         {
             get
             {
-                return this.endTimeField;
+                return this.endtimeField;
             }
             set
             {
-                this.endTimeField = value;
+                this.endtimeField = value;
             }
         }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://aquaris.siemens.net/PresenceAbsence")]
-    public enum createIdDayType
-    {
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("3")]
-        Item3,
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("4")]
-        Item4,
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5")]
-        Item5,
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("6")]
-        Item6,
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("7")]
-        Item7,
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("8")]
-        Item8,
     }
 
     /// <remarks/>
@@ -198,37 +136,32 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://aquaris.siemens.net/PresenceAbsence")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://aquaris.siemens.net/PresenceAbsence", IsNullable = false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
     public partial class update
     {
 
         private System.DateTime dateField;
 
-        private bool dateFieldSpecified;
+        private string gidField;
 
-        private string gIDField;
+        private string idorganisationField;
 
-        private string idOrganisationField;
+        private string iddaytypeField;
 
-        private createIdDayType idDayTypeField;
+        private System.DateTime starttimeField;
 
-        private System.DateTime startTimeField;
-
-        private System.DateTime endTimeField;
+        private System.DateTime endtimeField;
 
         public update()
         {
-            this.gIDField = "Z0024KJP";
-            this.idOrganisationField = "61";
-            this.idDayTypeField = createIdDayType.Item1;
-            this.startTimeField = new System.DateTime(216000000000);
-            this.endTimeField = new System.DateTime(516600000000);
+            this.starttimeField = new System.DateTime(216000000000);
+            this.endtimeField = new System.DateTime(516600000000);
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "date")]
-        public System.DateTime Date
+        public System.DateTime date
         {
             get
             {
@@ -241,91 +174,74 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool DateSpecified
-        {
-            get
-            {
-                return this.dateFieldSpecified;
-            }
-            set
-            {
-                this.dateFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
-        [System.ComponentModel.DefaultValueAttribute("Z0024KJP")]
-        public string GID
+        public string gid
         {
             get
             {
-                return this.gIDField;
+                return this.gidField;
             }
             set
             {
-                this.gIDField = value;
+                this.gidField = value;
             }
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "positiveInteger")]
-        [System.ComponentModel.DefaultValueAttribute("61")]
-        public string IdOrganisation
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "integer")]
+        public string idorganisation
         {
             get
             {
-                return this.idOrganisationField;
+                return this.idorganisationField;
             }
             set
             {
-                this.idOrganisationField = value;
+                this.idorganisationField = value;
             }
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
-        [System.ComponentModel.DefaultValueAttribute(createIdDayType.Item1)]
-        public createIdDayType IdDayType
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "integer")]
+        public string iddaytype
         {
             get
             {
-                return this.idDayTypeField;
+                return this.iddaytypeField;
             }
             set
             {
-                this.idDayTypeField = value;
+                this.iddaytypeField = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
         [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T06:00:00")]
-        public System.DateTime StartTime
+        public System.DateTime starttime
         {
             get
             {
-                return this.startTimeField;
+                return this.starttimeField;
             }
             set
             {
-                this.startTimeField = value;
+                this.starttimeField = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "time")]
         [System.ComponentModel.DefaultValueAttribute(typeof(System.DateTime), "0001-01-01T14:21:00")]
-        public System.DateTime EndTime
+        public System.DateTime endtime
         {
             get
             {
-                return this.endTimeField;
+                return this.endtimeField;
             }
             set
             {
-                this.endTimeField = value;
+                this.endtimeField = value;
             }
         }
     }
@@ -335,28 +251,20 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://aquaris.siemens.net/PresenceAbsence")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://aquaris.siemens.net/PresenceAbsence", IsNullable = false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
     public partial class delete
     {
 
         private System.DateTime dateField;
 
-        private bool dateFieldSpecified;
+        private string gidField;
 
-        private string gIDField;
-
-        private string idOrganisationField;
-
-        public delete()
-        {
-            this.gIDField = "Z0024KJP";
-            this.idOrganisationField = "61";
-        }
+        private string idorganisationField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "date")]
-        public System.DateTime Date
+        public System.DateTime date
         {
             get
             {
@@ -369,46 +277,30 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool DateSpecified
-        {
-            get
-            {
-                return this.dateFieldSpecified;
-            }
-            set
-            {
-                this.dateFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
-        [System.ComponentModel.DefaultValueAttribute("Z0024KJP")]
-        public string GID
+        public string gid
         {
             get
             {
-                return this.gIDField;
+                return this.gidField;
             }
             set
             {
-                this.gIDField = value;
+                this.gidField = value;
             }
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "positiveInteger")]
-        [System.ComponentModel.DefaultValueAttribute("61")]
-        public string IdOrganisation
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, DataType = "integer")]
+        public string idorganisation
         {
             get
             {
-                return this.idOrganisationField;
+                return this.idorganisationField;
             }
             set
             {
-                this.idOrganisationField = value;
+                this.idorganisationField = value;
             }
         }
     }
@@ -418,14 +310,19 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://aquaris.siemens.net/PresenceAbsence")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://aquaris.siemens.net/PresenceAbsence", IsNullable = false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
     public partial class PresenceAbsence
     {
 
         private object[] itemsField;
 
         private string versionField;
+
+        public PresenceAbsence()
+        {
+            this.versionField = "1.0.0";
+        }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("create", typeof(create))]
@@ -445,7 +342,8 @@ namespace ValidationXSDXML.PresenceAbsenceSchema
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
-        public string Version
+        [System.ComponentModel.DefaultValueAttribute("1.0.0")]
+        public string version
         {
             get
             {
