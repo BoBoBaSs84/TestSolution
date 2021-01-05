@@ -14,8 +14,20 @@
 	</xsd:attributeGroup>
 	<xsd:attributeGroup name="optional" id="OptionalAttributeGroup">
 		<xsd:attribute name="iddaytype" id="IdDayTypeAttribute" type="xsd:integer" use="required"/>
-		<xsd:attribute name="starttime" id="StartTimeAttribute" type="xsd:time" use="optional" default="00:00:00"/>
-		<xsd:attribute name="endtime" type="xsd:time" id="EndTimeAttribute" use="optional" default="00:00:00"/>
+		<xsd:attribute name="starttime" id="StartTimeAttribute" use="optional" default="00:00:00">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:time">
+					<xsd:pattern value="[0-2][09]:[0-5][09]:[0-5][09]"/>
+				</xsd:restriction>				
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="endtime" id="EndTimeAttribute" use="optional" default="00:00:00">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:time">
+					<xsd:pattern value="[0-2][09]:[0-5][09]:[0-5][09]"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
 	</xsd:attributeGroup>
 	<xsd:element name="create" id="CreateElement">
 		<xsd:complexType>
@@ -37,9 +49,9 @@
 	<xsd:element name="PresenceAbsence" id="PresenceAbsenceElement">
 		<xsd:complexType>
 			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
-				<xsd:element ref="create"/>
-				<xsd:element ref="update"/>
-				<xsd:element ref="delete"/>
+				<xsd:element ref="create" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="update" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="delete" minOccurs="0" maxOccurs="unbounded"/>
 			</xsd:sequence>
 			<xsd:attribute name="version" id="VersionAttribute" use="optional" default="1.0.0">
 				<xsd:simpleType>

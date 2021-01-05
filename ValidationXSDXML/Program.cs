@@ -23,6 +23,7 @@ namespace ValidationXSDXML
         {
             var test = new CPresenceAbsenceXmlBuilder();
             test.CreateXml();
+            Console.WriteLine("Created Test.xml...");
 
             if (Xsdfile == null)
             {
