@@ -12,14 +12,14 @@ namespace ValidationXSDXML
         {
             var pa = new PresenceAbsence() { version = "1.0.0" };
 
-            pa.create = new create[2]
-            {
-                (create)AddCreateToXml(DateTime.Parse("1900-01-01"), "Z0024KJP", 61, 1, DateTime.Parse("06:00:00"), DateTime.ParseExact("15:00:00", "HH:mm:ss", null)),
-                (create)AddCreateToXml(DateTime.Parse("1900-01-02"), "Z0024KJP", 61, 1, DateTime.Parse("06:00:00"), DateTime.ParseExact("16:00:00", "HH:mm:ss", null))
-            };
             pa.update = new update[1]
             {
-                (update)AddUpdateToXml(DateTime.Parse("1900-01-01"), "Z0024KJP", 61, 1, DateTime.Parse("06:00:00"), DateTime.ParseExact("14:00:00", "HH:mm:ss", null))
+                (update)AddUpdateToXml(DateTime.Parse("1900-01-01"), "Z0024KJP", 61, null, DateTime.Parse("06:00:00"), DateTime.Parse("14:00:00"))
+            };
+            pa.create = new create[2]
+            {
+                (create)AddCreateToXml(DateTime.Parse("1900-01-01"), "Z0024KJP", 61, null, DateTime.Parse("06:00:00"), DateTime.Parse("15:00:00")),
+                (create)AddCreateToXml(DateTime.Parse("1900-01-02"), "Z0024KJP", 61, 3, null, null)
             };
             pa.delete = new delete[1]
             {
@@ -42,18 +42,40 @@ namespace ValidationXSDXML
         /// <param name="p_dtStartTime"></param>
         /// <param name="p_dtEndTime"></param>
         /// <returns></returns>
-        private static object AddCreateToXml(DateTime p_dtDate, string p_strGid, int p_nIdOrganisation, int p_nIdDayType, DateTime p_dtStartTime, DateTime p_dtEndTime)
+        private static object AddCreateToXml(DateTime p_dtDate, string p_strGid, int p_nIdOrganisation, int? p_nIdDayType, DateTime? p_dtStartTime, DateTime? p_dtEndTime)
         {
-            var cr =
-                new create()
-                {
-                    date = p_dtDate,
-                    gid = p_strGid,
-                    idorganisation = p_nIdOrganisation.ToString(),
-                    iddaytype = p_nIdDayType.ToString(),
-                    starttime = p_dtStartTime,
-                    endtime = p_dtEndTime
-                };
+            bool bStartTimeSpecified = true;
+            bool bEndTimeSpecified = true;
+            bool bIdDayTypeSpecified = true;
+
+            if (p_dtStartTime == null)
+            {
+                bStartTimeSpecified = false;
+                p_dtStartTime = DateTime.MinValue;
+            }
+            if (p_dtEndTime == null)
+            {
+                bEndTimeSpecified = false;
+                p_dtEndTime = DateTime.MinValue;
+            }
+            if (p_nIdDayType == null)
+            {
+                bIdDayTypeSpecified = false;
+                p_nIdDayType = 0;
+            }
+
+            var cr = new create()
+            {
+                date = p_dtDate,
+                gid = p_strGid,
+                idorganisation = p_nIdOrganisation,
+                iddaytypeSpecified = bIdDayTypeSpecified,
+                iddaytype = (int)p_nIdDayType,
+                starttimeSpecified = bStartTimeSpecified,
+                starttime = (DateTime)p_dtStartTime,
+                endtimeSpecified = bEndTimeSpecified,
+                endtime = (DateTime)p_dtEndTime
+            };
             return cr;
         }
         /// <summary>
@@ -66,18 +88,40 @@ namespace ValidationXSDXML
         /// <param name="p_dtStartTime"></param>
         /// <param name="p_dtEndTime"></param>
         /// <returns></returns>
-        private static object AddUpdateToXml(DateTime p_dtDate, string p_strGid, int p_nIdOrganisation, int p_nIdDayType, DateTime p_dtStartTime, DateTime p_dtEndTime)
+        private static object AddUpdateToXml(DateTime p_dtDate, string p_strGid, int p_nIdOrganisation, int? p_nIdDayType, DateTime? p_dtStartTime, DateTime? p_dtEndTime)
         {
-            var up =
-                new update()
-                {
-                    date = p_dtDate,
-                    gid = p_strGid,
-                    idorganisation = p_nIdOrganisation.ToString(),
-                    iddaytype = p_nIdDayType.ToString(),
-                    starttime = p_dtStartTime.ToUniversalTime(),
-                    endtime = p_dtEndTime.ToUniversalTime()
-                };
+            bool bStartTimeSpecified = true;
+            bool bEndTimeSpecified = true;
+            bool bIdDayTypeSpecified = true;
+
+            if (p_dtStartTime == null)
+            {
+                bStartTimeSpecified = false;
+                p_dtStartTime = DateTime.MinValue;
+            }
+            if (p_dtEndTime == null)
+            {
+                bEndTimeSpecified = false;
+                p_dtEndTime = DateTime.MinValue;
+            }
+            if (p_nIdDayType == null)
+            {
+                bIdDayTypeSpecified = false;
+                p_nIdDayType = 0;
+            }
+
+            var up = new update()
+            {
+                date = p_dtDate,
+                gid = p_strGid,
+                idorganisation = p_nIdOrganisation,
+                iddaytypeSpecified = bIdDayTypeSpecified,
+                iddaytype = (int)p_nIdDayType,
+                starttimeSpecified = bStartTimeSpecified,
+                starttime = (DateTime)p_dtStartTime,
+                endtimeSpecified = bEndTimeSpecified,
+                endtime = (DateTime)p_dtEndTime
+            };
             return up;
         }
         /// <summary>
@@ -94,7 +138,7 @@ namespace ValidationXSDXML
                 {
                     date = p_dtDate,
                     gid = p_strGid,
-                    idorganisation = p_nIdOrganisation.ToString()
+                    idorganisation = p_nIdOrganisation
                 };
             return de;
         }

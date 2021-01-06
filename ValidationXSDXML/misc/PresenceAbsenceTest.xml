@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PresenceAbsence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <create date="1900-01-01" gid="Z0024KJP" idorganisation="61" iddaytype="1" starttime="06:00:00.0000000+01:00" endtime="15:00:00.0000000+01:00" />
-  <create date="1900-01-02" gid="Z0024KJP" idorganisation="61" iddaytype="1" starttime="06:00:00.0000000+01:00" endtime="16:00:00.0000000+01:00" />
-  <update date="1900-01-01" gid="Z0024KJP" idorganisation="61" iddaytype="1" starttime="05:00:00.0000000Z" endtime="13:00:00.0000000Z" />
+  <create date="1900-01-01" gid="Z0024KJP" idorganisation="61" starttime="06:00:00.0000000+01:00" endtime="15:00:00.0000000+01:00" />
+  <create date="1900-01-02" gid="Z0024KJP" idorganisation="61" iddaytype="3" />
+  <update date="1900-01-01" gid="Z0024KJP" idorganisation="61" starttime="06:00:00.0000000+01:00" endtime="14:00:00.0000000+01:00" />
   <delete date="1900-01-02" gid="Z0024KJP" idorganisation="61" />
 </PresenceAbsence>
