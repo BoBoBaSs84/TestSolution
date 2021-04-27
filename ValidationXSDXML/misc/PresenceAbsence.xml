@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PresenceAbsence Version="1.0">
-	<create date="1900-01-01" gid="Z0024KJP" idorganisation="61" iddaytype="1" starttime="06:00:00" endtime="14:21:00" />
-	<update date="1900-01-01" gid="Z0024KJP" idorganisation="61" iddaytype="1" starttime="07:00:00" endtime="15:21:00" />
-	<delete date="1900-01-01" gid="Z0024KJP" idorganisation="61" />
-</PresenceAbsence>

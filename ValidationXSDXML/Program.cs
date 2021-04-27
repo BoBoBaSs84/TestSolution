@@ -21,10 +21,6 @@ namespace ValidationXSDXML
 
         private void OnExecute()
         {
-            var test = new CPresenceAbsenceXmlBuilder();
-            test.CreateXml();
-            Console.WriteLine("Created Test.xml...");
-
             if (Xsdfile == null)
             {
                 Console.WriteLine("specify the xsd file (bla.xsd) ... better start with the parameter -?");
@@ -35,7 +31,7 @@ namespace ValidationXSDXML
                 Console.WriteLine("specify the xml file (blub.xml) ... better start with the parameter -?");
                 return;
             }
-            var validate = new Validation();
+            var validate = new CValidation();
             validate.Validate(Xsdfile, Xmlfile);
         }
     }

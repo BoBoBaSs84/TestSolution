@@ -3,10 +3,11 @@ using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
+using System.Reflection;
 
 namespace ValidationXSDXML
 {
-    public class Validation
+    public class CValidation
     {
         /// <summary>
         /// Die Methode validiert das xml mit dem xsd, gibt abweichungen line by line aus
@@ -15,8 +16,8 @@ namespace ValidationXSDXML
         /// <param name="p_strXML"></param>
         public void Validate(string p_strXSD, string p_strXML)
         {
-            var path = new Uri(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)).LocalPath;
-            XmlSchemaSet schema = new XmlSchemaSet();
+            var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).LocalPath;
+            XmlSchemaSet schema = new();
             schema.Add("", path + "\\" + p_strXSD);
 
             XmlReader rd = XmlReader.Create(path + "\\" + p_strXML);
