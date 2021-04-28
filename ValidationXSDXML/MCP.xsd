@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://devices.wkc.siemens.de/MCP" elementFormDefault="qualified"
+  xmlns="http://www.w3.org/2001/XMLSchema" xmlns:mcp="http://devices.wkc.siemens.de/MCP"
+  xmlns:xdb="http://www.borland.com/schemas/delphi/10.0/XMLDataBinding"
+>
+  <simpleType name="SwitchCategoryType">
+    <annotation>
+      <documentation>Expertenwissen:
+Turn=Drehschalter (Knebel, Schlüssel u.a.),
+Key=Taster,
+EmergencyStop=Not-Aus,
+GrayCode=Drehwahlschalter oder Handrad mit Gray-kodierter Darstellung der Schaltstellung,
+BinCode=Drehwahlschalter oder Handrad mit binär kodierter Darstellung der Schaltstellung,
+Indicator=Anzeigeelement (z.B. LED),
+Vibrator
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Turn"></enumeration>
+      <enumeration value="Key"></enumeration>
+      <enumeration value="EmergencyStop"></enumeration>
+      <enumeration value="GrayCode"></enumeration>
+      <enumeration value="BinCode"></enumeration>
+      <enumeration value="Indicator"></enumeration>
+      <enumeration value="Vibrator"></enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ByteIndexType">
+    <restriction base="nonNegativeInteger"></restriction>
+  </simpleType>
+  <simpleType name="BitIndexType">
+    <restriction base="int">
+      <minInclusive value="0"></minInclusive>
+      <maxInclusive value="7"></maxInclusive>
+    </restriction>
+  </simpleType>
+  <complexType name="ImageBitType">
+    <annotation>
+      <documentation>Diverse Signale werden in einem Signal-Image (Byte-Array) über Kommunikationskanäle (Profi-Bus,
+-Net, Industral Ethernet etc.) übertragen.
+Hier wird die Position des Signals im Abbild beschrieben, ggf. bezogen auf einen übergeordneten Offset.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="Byte" type="mcp:ByteIndexType">
+        <annotation>
+          <documentation>Byte-Offset, Zählung beginnt bei 0</documentation>
+        </annotation>
+      </element>
+      <element name="Bit" type="mcp:BitIndexType">
+        <annotation>
+          <documentation>Bit-Offset</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PointType">
+    <annotation>
+      <documentation>3D-Koordinaten eines Punkts im Raum</documentation>
+    </annotation>
+    <sequence>
+      <element name="X" type="double"></element>
+      <element name="Y" type="double"></element>
+      <element name="Z" type="double"></element>
+    </sequence>
+  </complexType>
+  <complexType name="PlacementType">
+    <annotation>
+      <documentation>Platzierung des Bauelements im Raum in Bezug auf die übergeordnete Baugruppe
+-> aus Aufbauzeichnung und Maßbild (TeamCenter); Wunschlösung: aus Konstruktionsdaten
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="Position" type="mcp:PointType">
+        <annotation>
+          <documentation>Verschiebung des Referenzpunktes des Bauelements gegenüber dem Referenzpunkt der
+übergeordneten Baugruppe
+          </documentation>
+        </annotation>
+      </element>
+      <element name="Axis" type="mcp:PointType">
+        <annotation>
+          <documentation>Vektor der Drehachse des Bauteils</documentation>
+        </annotation>
+      </element>
+      <element name="Angle" type="double">
+        <annotation>
+          <documentation>Winkel der Drehung um die Drehachse in "Axis"</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="SolidType">
+    <annotation>
+      <documentation>reales Bauteil, das einen geometrischen Körper bildet</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:PartType">
+        <sequence>
+          <element name="Dimension" type="mcp:PointType">
+            <annotation>
+              <documentation>maximale Ausdehnung im Raum</documentation>
+            </annotation>
+          </element>
+          <element name="Placement" type="mcp:PlacementType">
+            <annotation>
+              <documentation>Verschiebung des Mittelpunkts zum Referenzpunkt und Drehung des Körpers im Raum
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SignalType">
+    <annotation>
+      <documentation>elektrisches Signal</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>Signalname
+-> aus Stromlaufplan
+          </documentation>
+        </annotation>
+      </element>
+      <choice>
+        <element name="ImageOffset" type="mcp:ImageBitType">
+          <annotation>
+            <documentation>wenn das Signal mit fixer Verdrahtung über die Kommunikationsschnittstelle gesteuert bzw.
+ausgewertet wird:
+Byte- und Bit-Offset des Signalabbilds zum Basis-Bit der übergordneten Baugruppe
+-> Information aus Entwicklungs- und Produktdokumentation
+            </documentation>
+          </annotation>
+        </element>
+        <sequence>
+          <element name="InPin" type="mcp:PinType">
+            <annotation>
+              <documentation>wenn das Signal variabel zu anderen Bauteilen verdrahtet wird:
+Potential-Pin für geschaltete Kontakte;
+Signal-Pin für Aktoren
+              </documentation>
+            </annotation>
+          </element>
+          <element name="OutPin" type="mcp:PinType">
+            <annotation>
+              <documentation>wenn das Signal variabel zu anderen Bauteilen verdrahtet wird:
+Signal-Pin für geschaltete Kontakte;
+Potential-Pin für Aktoren
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="SignalListType">
+    <annotation>
+      <documentation>Liste von elektrischen Signalen</documentation>
+    </annotation>
+    <sequence>
+      <element name="Signal" type="mcp:SignalType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="SwitchPositionType">
+    <annotation>
+      <documentation>Schalterstellung</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>Bezeichnung bzw. Beschriftung der Schalterstellung
+-> aus Datenblatt des Schalters bzw. Expertenwissen (Kundenwusch)
+          </documentation>
+        </annotation>
+      </element>
+      <element name="Angle" type="double">
+        <annotation>
+          <documentation>Winkel der Schalterstellung gegenüber der Senkrechten
+-> aus Datenblatt des Schalters
+          </documentation>
+        </annotation>
+      </element>
+      <element name="ActiveInputs" type="mcp:IndexListType">
+        <annotation>
+          <documentation>Liste der in dieser Schalterstellung geschlossenen Kontakte als Index der zugeörigen Liste
+ "Inputs"
+-> aus Datenblatt des Schalters bzw. Expertenwissen der Auftragsbearbeitung
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="IndexListType">
+    <annotation>
+      <documentation>Liste von Index-Werten als Referenz</documentation>
+    </annotation>
+    <sequence>
+      <element name="ListIndex" minOccurs="0" maxOccurs="unbounded" type="nonNegativeInteger">
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="SwitchPositionListType">
+    <annotation>
+      <documentation>Liste von Schalterstellungen</documentation>
+    </annotation>
+    <sequence>
+      <element name="Position" type="mcp:SwitchPositionType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="SwitchType">
+    <annotation>
+      <documentation>Schalter, ID-Prefix = s</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:SolidType">
+        <sequence>
+          <element name="Category" type="mcp:SwitchCategoryType">
+            <annotation>
+              <documentation>aus Datenblatt des Schalters</documentation>
+            </annotation>
+          </element>
+          <choice minOccurs="0">
+            <sequence>
+              <element name="Inputs" type="mcp:SignalListType">
+                <annotation>
+                  <documentation>Liste der den Kontakten zugeordneten Signale
+-> aus Stromlaufplan
+                  </documentation>
+                </annotation>
+              </element>
+              <element name="Positions" type="mcp:SwitchPositionListType">
+                <annotation>
+                  <documentation>Liste der Schalterstellungen
+-> aus Datenblatt
+                  </documentation>
+                </annotation>
+              </element>
+            </sequence>
+            <element name="KeyCode" type="string">
+              <annotation>
+                <documentation>bei Tastaturen der zugeordnete Tastencode</documentation>
+              </annotation>
+            </element>
+          </choice>
+          <element name="Outputs" type="mcp:SignalListType" minOccurs="0">
+            <annotation>
+              <documentation>Liste der den Aktoren zugeordneten Ansteuersignale
+-> aus Stromlaufplan
+              </documentation>
+            </annotation>
+          </element>
+          <element name="Label" type="mcp:LabelMountType" minOccurs="0">
+            <annotation>
+              <documentation>Liste der zugeordneten Beschriftungen
+-> Schilder aus Stückliste
+-> Laserbeschriftung aus Teamcenter: EngineeringView mit Structure Manager -> Reference Designator
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SwitchMountType">
+    <annotation>
+      <documentation>Zuordnung eines in einem Modul verbauten Schalters.
+>> Die Referenz einer Taste in einem Tastenmodul hat die Form "S1234". Die Zahl in den Positionen '12' kennzeichnet
+einen Tastenblock, die Position '3' kennzeichet eine Zeile beginnend von oben und die Position '4' kennzeichnet eine
+Spalte beginnend von links.
+Der Wertebereich der Zeilen- und Spaltenkennzeichen beginnt mit den Ziffern 0..9 und setzt sich mit großen Buchstaben
+fort. Welche Buchstaben hier gültig sind, ist dem Autor nicht bekannt.
+>> der Tastenblock-Teil "S12" wird in Device/Modules/Module/SwitchReferencePrefix eingetragen, der Zeilen-/Spaltenteil
+"34" hingegen in Module/Switches/Switch/Reference
+      </documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:MountType">
+        <sequence>
+          <element name="SwitchID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "Switches", ID-Prefix ist "s"
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SwitchMountListType">
+    <annotation>
+      <documentation>Liste von montierten Schaltern</documentation>
+    </annotation>
+    <sequence>
+      <element name="Switch" type="mcp:SwitchMountType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="ModuleType">
+    <annotation>
+      <documentation>Schalter-, Tasten-, Blind-Modul u.ä., ID-Prefix = m</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:SolidType">
+        <sequence>
+          <element name="Categories" type="mcp:ModuleCategoryListType">
+            <annotation>
+              <documentation>aus TeamCenter Aufbauzeichnung, Stückliste, Datenblatt u.a.
+>> Tastenmodule bestehen aus mehreren Tasten
+>> Powerrides haben virtuell eine Taste und einen Drehschalter mit binär kodiertem Signalabbild
+>> Overrides sind Drehwahlschalter mit Gray-kodiertem Steckverbinderanschluss
+              </documentation>
+            </annotation>
+          </element>
+          <element name="Switches" type="mcp:SwitchMountListType"></element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ModuleMountType">
+    <annotation>
+      <documentation>Zuordnung eines in der Maschinenbedientafel verbauten Moduls</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:MountType">
+        <sequence>
+          <element name="SwitchReferencePrefix" type="string" minOccurs="0">
+            <annotation>
+              <documentation>erster Teil des Referenzkenners für Tasten innerhalb eines Tastenmoduls
+>> Die Referenz einer Taste in einem Tastenmodul hat die Form "S1234". Die Zahl in den Positionen '12' kennzeichnet
+einen Tastenblock, die Position '3' kennzeichet eine Zeile beginnend von oben und die Position '4' kennzeichnet eine
+Spalte beginnend von links.
+Der Wertebereich der Zeilen- und Spaltenkennzeichen beginnt mit den Ziffern 0..9 und setzt sich mit großen Buchstaben
+fort. Welche Buchstaben hier gültig sind, ist dem Autor nicht bekannt.
+>> der Tastenblock-Teil "S12" wird in Device/Modules/Module/SwitchReferencePrefix eingetragen, der Zeilen-/Spaltenteil
+"34" hingegen in Module/Switches/Switch/Reference
+              </documentation>
+            </annotation>
+          </element>
+          <element name="ModuleID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "Modules", ID-Prefix ist "m"</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ModuleMountListType">
+    <annotation>
+      <documentation>Liste von montierten Modulen</documentation>
+    </annotation>
+    <sequence>
+      <element name="Module" type="mcp:ModuleMountType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="DeviceType">
+    <annotation>
+      <documentation>ID-Prefix = d</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:PartType">
+        <sequence>
+          <element name="MLFB" type="string">
+            <annotation>
+              <documentation>Teamcenter: Overview -> Product Information -> Product MLFB</documentation>
+            </annotation>
+          </element>
+          <element name="InternalName" type="string">
+            <annotation>
+              <documentation>interne Entwicklungsbezeichnung -> Entwicklung fragen</documentation>
+            </annotation>
+          </element>
+          <element name="FunctionalState" type="string">
+            <annotation>
+              <documentation>Teamcenter: Overview -> Product Information -> Functional State</documentation>
+            </annotation>
+          </element>
+          <element name="HardwareIdentID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "HardwareIdents", ID-Prefix ist "h"
+-> Zuordnung von Entwicklung erfragen
+              </documentation>
+            </annotation>
+          </element>
+          <element name="FirmwareID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "FirmwareFiles", ID-Prefix ist "f"
+-> Zuordnung von Entwicklung erfragen
+              </documentation>
+            </annotation>
+          </element>
+          <element name="AttributeFiles" type="mcp:AttributeFileAssignListType">
+            <annotation>
+              <documentation>Konfigurationsdateien aus Teamcenter</documentation>
+            </annotation>
+          </element>
+          <element name="MacAddresses" type="mcp:MacAddressListType">
+            <annotation>
+              <documentation>Im HW-Info-Block können bis zu vier unabhängige MAC-Adressen und jeweils eine Anzahl der
+ebenfalls gültigen unmittelbar folgenden Adressen hinterlegt. Hier werden diese vier Anzahlen einschließlich der
+jeweils ersten Adresse hinterlegt. Nach Wissensstand zum Zeitpunkt der Erstellung dieser Dokumentation ist das für MCP
+immer (3, 0, 0, 0)
+              </documentation>
+            </annotation>
+          </element>
+          <element name="InputImageByteCount" type="nonNegativeInteger">
+            <annotation>
+              <documentation>Definiert im Gerätehandbuch "SINUMERIK 840D sl Modulare MCPs Teil 1" ohne bekannte
+Datenablage, Abschnitt "5.2 Eingangsabbilder".
+Expertenwissen: Daten für Tastenmodule und Powerrides sind nur für tatsächlich verbaute Module enthalten.
+
+Mit
+[
+l = Länge des Signalabbilds in Byte;
+b = Basis = 6;
+t = Anzahl der Tastenmodule;
+p = Anzahl der Powerrrides;
+h = Anzahl der Handräder = 2 (auch wenn nicht bestückt, weil Anschlüsse vorhanden sind)
+]
+gilt
+l = b + t * 4 + p * 2 + h * 2 = 10 + t * 4 + p * 2
+              </documentation>
+            </annotation>
+          </element>
+          <element name="OutputImageByteCount" type="nonNegativeInteger">
+            <annotation>
+              <documentation>Definiert im Gerätehandbuch "SINUMERIK 840D sl Modulare MCPs Teil 1" ohne bekannte
+ Datenablage, Abschnitt "5.3 Ausgangsabbilder".
+Expertenwissen: Daten für Tastenmodule und Powerrides sind nur für tatsächlich verbaute Module enthalten.
+
+Mit
+[
+l = Länge des Signalabbilds in Byte;
+b = Basis = 2;
+t = Anzahl der Tastenmodule;
+p = Anzahl der Powerrrides
+]
+gilt
+l = 2 + t * 4 + p * 6
+              </documentation>
+            </annotation>
+          </element>
+          <element name="PanelID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "Panels", ID-Prefix ist "p"
+-> Zuordnung aus Stückliste
+              </documentation>
+            </annotation>
+          </element>
+          <element name="Boards" type="mcp:BoardMountListType">
+            <annotation>
+              <documentation>verbaute Flachbaugruppen aus Stückliste</documentation>
+            </annotation>
+          </element>
+          <element name="Modules" type="mcp:ModuleMountListType">
+            <annotation>
+              <documentation>verbaute Module aus Aufbauzeichnung (-> In Teamcenter ist am Gerät unterhalb von
+"Represented By" ein Eintrag "Aufbau" angehangen) und Stückliste (-> Teamcenter: EngineeringView mit Structure Manager)
+              </documentation>
+            </annotation>
+          </element>
+          <element name="Connectors" type="mcp:ConnectorMountListType">
+            <annotation>
+              <documentation>einzeln in der Bedientafel verbaute Steckverbinder (nicht die in Flachbaugruppen
+enthaltenen, diese bei BoardType eintragen) aus Aufbauzeichnung (-> In Teamcenter ist am Gerät unterhalb von
+"Represented By" ein Eintrag "Aufbau" angehangen) und Stückliste (-> Teamcenter: EngineeringView mit StructureManager)
+              </documentation>
+            </annotation>
+          </element>
+          <element name="Wiring" type="mcp:WireListType">
+            <annotation>
+              <documentation>Verdrahtung aus Teamcenter -> EngineeringView mit Structure Manager oder aus aufbereiteter
+Verdrahtungsliste (Auftragsbearbeiter)
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PanelType">
+    <annotation>
+      <documentation>Frontblende, ID-Prefix = p</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:SolidType"></extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ModuleListType">
+    <annotation>
+      <documentation>Liste von Modulen</documentation>
+    </annotation>
+    <sequence>
+      <element name="Module" type="mcp:ModuleType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="SwitchListType">
+    <annotation>
+      <documentation>Liste von Schaltern</documentation>
+    </annotation>
+    <sequence>
+      <element name="Switch" type="mcp:SwitchType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="DeviceListType">
+    <annotation>
+      <documentation>Liste von Maschinenbedientafeln</documentation>
+    </annotation>
+    <sequence>
+      <element name="Device" type="mcp:DeviceType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <element name="Data" type="mcp:DataType"></element>
+  <complexType name="DataType">
+    <annotation>
+      <appinfo xdb:docElement="Data" />
+      <documentation>Dokument-Element: Container mit allen enthaltenen Daten</documentation>
+    </annotation>
+    <sequence>
+      <element name="Devices" type="mcp:DeviceListType">
+        <annotation>
+          <documentation>alle verfügbaren oder abgefragten Maschinenbedientafeln</documentation>
+        </annotation>
+      </element>
+      <element name="Panels" type="mcp:PanelListType">
+        <annotation>
+          <documentation>alle verwendeten Frontblenden</documentation>
+        </annotation>
+      </element>
+      <element name="Boards" type="mcp:BoardListType">
+        <annotation>
+          <documentation>alle verwendeten Flachbaugruppen</documentation>
+        </annotation>
+      </element>
+      <element name="Connectors" type="mcp:ConnectorListType">
+        <annotation>
+          <documentation>alle verwendeten Steckverbinder</documentation>
+        </annotation>
+      </element>
+      <element name="Modules" type="mcp:ModuleListType">
+        <annotation>
+          <documentation>alle verwendeten Module</documentation>
+        </annotation>
+      </element>
+      <element name="Switches" type="mcp:SwitchListType">
+        <annotation>
+          <documentation>alle verwendeten Tasten und Schalter</documentation>
+        </annotation>
+      </element>
+      <element name="Labels" type="mcp:LabelListType">
+        <annotation>
+          <documentation>alle verwendeten Beschriftungen (Schilder und/oder Laserbeschriftungen)</documentation>
+        </annotation>
+      </element>
+      <element name="HardwareIdents" type="mcp:HardwareIdentListType">
+        <annotation>
+          <documentation>alle relevanten HW-IDs</documentation>
+        </annotation>
+      </element>
+      <element name="FirmwareFiles" type="mcp:FirmwareListType">
+        <annotation>
+          <documentation>alle verwendeten Firmware-Dateien</documentation>
+        </annotation>
+      </element>
+      <element name="AttributeFiles" type="mcp:AttributeFileListType">
+        <annotation>
+          <documentation>alle verwendeten Konfigurationsdateien</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PanelListType">
+    <annotation>
+      <documentation>Liste von Frontblenden</documentation>
+    </annotation>
+    <sequence>
+      <element name="Panel" type="mcp:PanelType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="FirmwareVersionType">
+    <annotation>
+      <documentation>Firmware-Version</documentation>
+    </annotation>
+    <sequence>
+      <element name="Major" type="unsignedByte"></element>
+      <element name="Minor" type="unsignedByte"></element>
+      <element name="Release" type="unsignedByte"></element>
+      <element name="Build" type="unsignedByte"></element>
+      <element name="BuildTime" type="dateTime"></element>
+    </sequence>
+  </complexType>
+  <complexType name="HardwareIdentType">
+    <annotation>
+      <documentation>Hardware-ID, ID-Prefix = h
+
+-> A5E38523914A Feature-Document HW-Infoblock, Abschnitt "3.4.1 Hardware-ID" beschreibt mögliche Werte.
+Hier relevant:
+9.1.5.1  MPP IE;
+9.1.9.1  MPP 483T PN (with COM-Board);
+9.1.10.1 MPP 1500D;
+9.1.12.1 ;
+9.6.0.0  modular MCP;
+      </documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:ElementType">
+        <sequence>
+          <element name="Category" type="unsignedByte"></element>
+          <element name="Architecture" type="unsignedByte"></element>
+          <element name="Major" type="unsignedByte"></element>
+          <element name="Minor" type="unsignedByte"></element>
+          <element name="Name" type="string"></element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MountType">
+    <annotation>
+      <documentation>Metadaten für montierte Unterbaugruppen</documentation>
+    </annotation>
+    <sequence>
+      <element name="Reference" type="string">
+        <annotation>
+          <documentation>aus Stückliste (Teamcenter: EngineeringView mit StructureManager -> Reference Designator);
+          </documentation>
+        </annotation>
+      </element>
+      <element name="Placement" type="mcp:PlacementType">
+        <annotation>
+          <documentation>Lage und Richtung des untergeordneten Bauteils bezogen auf das direkt übergeordnete Bauteil.
+            Daten aus Aufbauzeichnung.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="InputImageOffset" type="mcp:ImageBitType" minOccurs="0">
+        <annotation>
+          <documentation>Byte- und Bit-Offset des Eingangsabbilds zum Basis-Bit der übergordneten Baugruppe als Basis
+für alle untegeordneten Bauteile
+-> Information aus Entwicklungs- und Produktdokumentation
+>> für MPP483 ist jeder HW-ID ein Eingangsabbild zugeordnet
+>> für modulare MCP (HW-ID 9.6.0.0) gilt:
+2 Bytes KT_IN an X515 und X516,
+2 Bytes (je 5 relevante Bits) Spindel- und Vorschub-Override,
+1 Byte (4 relevante Bits) Schlüsselschalter an X50,
+1 Byte Reserve,
+4 Bytes je Tastenmodul,
+2 Bytes je Powerride,
+2 * 2 Bytes für zwei Handradanschlüsse
+          </documentation>
+        </annotation>
+      </element>
+      <element name="OutputImageOffset" type="mcp:ImageBitType" minOccurs="0">
+        <annotation>
+          <documentation>Byte- und Bit-Offset des Ausgangsabbilds zum Basis-Bit der übergordneten Baugruppe als Basis
+für alle untegeordneten Bauteile
+-> Information aus Entwicklungs- und Produktdokumentation
+>> für MPP483 ist jeder HW-ID ein Ausgangsabbild zugeordnet
+>> für modulare MCP (HW-ID 9.6.0.0) gilt:
+2 Bytes KT_OUT an X515 und X516,
+4 Bytes je Tastenmodul,
+6 Bytes je Powerride
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PartType">
+    <annotation>
+      <documentation>Alle Bauteile oder Baugruppen, die eine Materialnummer haben können (aber nicht müssen) leiten sich
+von diesem Typ ab.
+Wenn eine Materialnummer im Element "ItemNumber" existiert, dann muss auch eine Revision eingetragen werden.
+Die Kombination aus "ItemNumber", "Revision", "Segment" und "Instance" muss unter den Kind-Elementen desselben
+Eltern-Elements eindeutig sein, sofern mindestens einer dieser Werte existiert.
+      </documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:ElementType">
+        <sequence>
+          <element name="Name" type="string">
+            <annotation>
+              <documentation>Teamcenter: ML Attribute -> Name</documentation>
+            </annotation>
+          </element>
+          <sequence minOccurs="0">
+            <element name="ItemNumber" type="string">
+              <annotation>
+                <documentation>Materialnummer (z.B. "A5E00000000") aus Teamcenter oder Stückliste</documentation>
+              </annotation>
+            </element>
+            <element name="Revision" type="string">
+              <annotation>
+                <documentation>aus Teamcenter Revision State ohne "RS-",
+z.B.: aus "RS-AA" wird "AA"
+                </documentation>
+              </annotation>
+            </element>
+            <element name="Segment" type="positiveInteger" minOccurs="0">
+              <annotation>
+                <documentation>Eine Baugruppe kann durch mehrere gleichartige (Unter-)Elemente repräsentiert werden.
+In diesem Fall sind letztere durch eine fortlaufende "Segment"-Nummerierung zu unterscheiden.
+
+Beispiel:
+Ein Tastaturmodul besteht aus einem Buchstaben- und einem Nummern-Block. Die Referenz der enthaltenen Tasten wird durch
+verschiedene Präfixe unterschieden. Um diesen Zusammenhang in der Struktur abzubilden, wird für jeden der genannten
+Blöcke ein eigenes (virtuelles) Modul abgebildet. Weil diese jedoch Bestandteil desselben realen Moduls mit derselben
+Materialnummer sind, ist hier eine Unterscheidung notwendig.
+                </documentation>
+              </annotation>
+            </element>
+            <element name="Instance" type="positiveInteger" minOccurs="0">
+              <annotation>
+                <documentation>Mehrere zunächst gleichartige Baugruppen können sich durch nachgelagerte Bearbeitung
+unterscheiden. Wenn diese Unterscheidung in der Struktur abgebildet werden soll, dann sind die Varianten durch eine
+fortlaufende "Instance"-Nummerierung zu kennzeichnen.
+
+Beispiel:
+In eine Bedientafel werden mehrere gleiche Tastenmodule verbaut, die anschließend unterschiedlich beschriftet werden.
+                </documentation>
+              </annotation>
+            </element>
+          </sequence>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ElementType">
+    <annotation>
+      <documentation>referenzierbares Element</documentation>
+    </annotation>
+    <attribute name="ID" type="ID" use="required">
+      <annotation>
+        <documentation>eineindeutige Kennung bestehend aus einem die Elementklasse kennzeichnenden Buchstaben (siehe
+abgeleitete Typen) gefolgt von einer fortlaufenden Nummer
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+  <complexType name="HardwareIdentListType">
+    <annotation>
+      <documentation>Liste von HW-IDs</documentation>
+    </annotation>
+    <sequence>
+      <element name="HardwareIdent" type="mcp:HardwareIdentType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="FirmwareListType">
+    <annotation>
+      <documentation>Liste von Firmware-Dateien</documentation>
+    </annotation>
+    <sequence>
+      <element name="Firmware" type="mcp:FirmwareType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="MacAddressListType">
+    <annotation>
+      <documentation>Liste enthält die Anzahl aufeinander folgender MAC-Adressen, einschließlich der Basis-Adresse.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="Count" type="unsignedByte" minOccurs="4" maxOccurs="4"></element>
+    </sequence>
+  </complexType>
+  <simpleType name="ModuleCategoryType">
+    <annotation>
+      <documentation>Expertenwissen:
+USB      = Anschluss via USB an die Steuerung,
+COM      = Anschluss an Kommunikationsbaugruppe,
+DIO      = Kundenanschluss: muss digital angesteuert oder ausgewertet werden,
+KBD      = Tastatur als HID,
+NUM      = Nummernblock der Tastatur als HID,
+Mouse    = Maus als HID,
+MouseBtn = Maustasten als HID,
+Track    = Trackball als HID,
+Touch    = Touchpad als HID
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="USB"></enumeration>
+      <enumeration value="COM"></enumeration>
+      <enumeration value="DIO"></enumeration>
+      <enumeration value="KBD"></enumeration>
+      <enumeration value="NUM"></enumeration>
+      <enumeration value="Mouse"></enumeration>
+      <enumeration value="MouseBtn"></enumeration>
+      <enumeration value="Track"></enumeration>
+      <enumeration value="Touch"></enumeration>
+    </restriction>
+  </simpleType>
+  <complexType name="BoardListType">
+    <annotation>
+      <documentation>Liste von Flachbaugruppen</documentation>
+    </annotation>
+    <sequence>
+      <element name="Board" type="mcp:BoardType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="BoardType">
+    <annotation>
+      <documentation>Flachbaugruppe, ID-Prefix = b</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:SolidType">
+        <sequence>
+          <element name="Category" type="mcp:BoardCategoryType">
+            <annotation>
+              <documentation>Expertenwissen</documentation>
+            </annotation>
+          </element>
+          <element name="Connectors" type="mcp:ConnectorMountListType">
+            <annotation>
+              <documentation>verbaute Steckverbinder aus Stromlaufplan (-> In Teamcenter ist am CCA der FBG unterhalb
+von "Represented By" oder unter "Documents" -> "ECAD Documents" ein Eintrag "Schematic", "SCM" o.ä. angehangen) und
+Stückliste (-> Teamcenter: EngineeringView mit StructureManager)
+              </documentation>
+            </annotation>
+          </element>
+          <element name="Connections" type="mcp:OnBoardConnectionListType">
+            <annotation>
+              <documentation>Signalwege zwischen Steckverbindern und/oder Controller innerhalb der FBG aus Stromlaufplan
+(-> In Teamcenter ist am CCA der FBG unterhalb von "Represented By" oder unter "Documents" -> "ECAD Documents" ein
+Eintrag "Schematic", "SCM" o.ä. angehangen)
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <simpleType name="BoardCategoryType">
+    <annotation>
+      <documentation>Expertenwissen:
+COM = Kommunikationsbagruppe,
+KT  = Kundentastenbaugruppe,
+HGA = Handgeräteanschluss,
+weitere nach Bedarf
+      </documentation>
+    </annotation>
+    <restriction base="string"></restriction>
+  </simpleType>
+  <complexType name="ConnectorListType">
+    <annotation>
+      <documentation>Liste von Steckverbindern</documentation>
+    </annotation>
+    <sequence>
+      <element name="Connector" type="mcp:ConnectorType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="ConnectorType">
+    <annotation>
+      <documentation>Steckverbinder, ID-Prefix = c</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:SolidType">
+        <sequence>
+          <element name="Pins" type="mcp:PinListType"></element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PinType">
+    <annotation>
+      <appinfo xdb:repeated="True" />
+      <documentation>Pin eines Steckverbinders</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>Bezeichnung des Pins -> aus Datenblatt des Steckverbinders oder Stromlaufplan der Baugruppe
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="ConnectorMountListType">
+    <annotation>
+      <documentation>Liste von montierten Steckverbindern</documentation>
+    </annotation>
+    <sequence>
+      <element name="Connector" type="mcp:ConnectorMountType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="ConnectorMountType">
+    <annotation>
+      <documentation>Zuordnung eines auf einer Flachbaugruppe oder im Gerät verbauten Steckverbinders</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:MountType">
+        <sequence>
+          <element name="ConnectorID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "Connectors", ID-Prefix ist "c"
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BoardMountListType">
+    <annotation>
+      <documentation>Liste von montierten Flachbaugruppen</documentation>
+    </annotation>
+    <sequence>
+      <element name="Board" type="mcp:BoardMountType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="BoardMountType">
+    <annotation>
+      <documentation>Zuordnung einer in ein Gerät montierten Flachbaugruppe</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:MountType">
+        <sequence>
+          <element name="BoardID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "Boards", ID-Prefix ist "b"</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WireListType">
+    <annotation>
+      <documentation>Verdrahtungsliste</documentation>
+    </annotation>
+    <sequence>
+      <element name="Wire" type="mcp:WireType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="WireType">
+    <annotation>
+      <documentation>Leitungsverbindung
+
+-> aus Teamcenter: EngineeringView mit Structure Manager oder aus vom Auftragsbearbeiter aufbereiteter
+Verdrahtungsliste
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="From" type="mcp:WireTerminalType"></element>
+      <element name="To" type="mcp:WireTerminalType"></element>
+    </sequence>
+  </complexType>
+  <complexType name="WireTerminalType">
+    <annotation>
+      <documentation>Stecker-Pin für Verdrahtungsliste</documentation>
+    </annotation>
+    <sequence>
+      <choice>
+        <sequence>
+          <element name="BoardReference" type="string">
+            <annotation>
+              <documentation>Referenzkenner einer Flachbaugruppe</documentation>
+            </annotation>
+          </element>
+          <element name="ConnectorReference" type="string">
+            <annotation>
+              <documentation>Referenzkenner eines auf einer Flachbaugruppe montierten Steckverbinders</documentation>
+            </annotation>
+          </element>
+        </sequence>
+        <sequence>
+          <element name="ModuleReference" type="string">
+            <annotation>
+              <documentation>Referenzkenner eines Schalter- bzw. Tasten-Moduls</documentation>
+            </annotation>
+          </element>
+          <element name="SwitchReference" type="string">
+            <annotation>
+              <documentation>Referenzkenner eines Schaltelements</documentation>
+            </annotation>
+          </element>
+        </sequence>
+        <sequence>
+          <element name="ConnectorReference" type="string">
+            <annotation>
+              <documentation>Referenzkenner eines unmittelbar an der Maschinenbedientafel montierten Steckverbinders
+              </documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </choice>
+      <element name="PinName" type="string">
+        <annotation>
+          <documentation>Bezeichnung eines Pins am Steckverbinder oder am Schaltelement</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LabelType">
+    <annotation>
+      <documentation>Beschriftung, ID-Prefix = l</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:SolidType">
+        <sequence>
+          <choice>
+            <element name="Text" type="string"></element>
+            <element name="Picture" type="base64Binary"></element>
+          </choice>
+          <element name="Color" type="string"></element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OnBoardConnectionListType">
+    <annotation>
+      <documentation>Verbindungsliste innerhalb einer Flachbaugruppe</documentation>
+    </annotation>
+    <sequence>
+      <element name="Connection" type="mcp:OnBoardConnectionType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="OnBoardConnectionType">
+    <annotation>
+      <documentation>Signalverbindung innerhalb einer Flachbaugruppe</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>Signalname -> aus Stromlaufplan</documentation>
+        </annotation>
+      </element>
+      <element name="From" type="mcp:OnBoardConnectionTerminalType">
+        <annotation>
+          <documentation>erstes Pin der Signalverbindung -> aus Stromlaufplan
+          </documentation>
+        </annotation>
+      </element>
+      <choice>
+        <element name="To" type="mcp:OnBoardConnectionTerminalType">
+          <annotation>
+            <documentation>bei Durchverdrahtung (einschließlich Logikbausteine) zweites Pin der Signalverbindung in
+Signalrichtung
+-> aus Stromlaufplan
+            </documentation>
+          </annotation>
+        </element>
+        <element name="InputImageBit" type="mcp:ImageBitType">
+          <annotation>
+            <documentation>Bit des Eingangsabbilds für ein Eingangssignal, welches im Controller verarbeitet wird
+-> aus Entwicklungs- und Produktdokumentation
+            </documentation>
+          </annotation>
+        </element>
+        <element name="OutputImageBit" type="mcp:ImageBitType">
+          <annotation>
+            <documentation>Bit des Eingangsabbilds für ein Ausgangssignal, welches im Controller verarbeitet wird
+-> aus Entwicklungs- und Produktdokumentation
+            </documentation>
+          </annotation>
+        </element>
+      </choice>
+      <element name="Inverting" type="boolean">
+        <annotation>
+          <documentation>Signal wird im Ergebnis der Logikbeschaltung invertiert
+-> aus Stromlaufplan
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="OnBoardConnectionTerminalType">
+    <annotation>
+      <documentation>Stecker-Pin für Verbindungsliste innerhalb einer Flachbaugruppe</documentation>
+    </annotation>
+    <sequence>
+      <element name="ConnectorReference" type="string">
+        <annotation>
+          <documentation>Referenzkennzeichen des Steckers -> aus Stückliste und Stromlaufplan</documentation>
+        </annotation>
+      </element>
+      <element name="PinName" type="string">
+        <annotation>
+          <documentation>Bezeichnung des Pins -> aus Datenblatt des Steckers bzw. Stromlaufplan der Flachbaugruppe
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LabelMountType">
+    <annotation>
+      <documentation>Zuordnung einer auf oder an einem Bauelement angebrachten Beschriftung</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:MountType">
+        <sequence>
+          <element name="LabelID" type="IDREF">
+            <annotation>
+              <documentation>Verweis auf einen Eintrag der Liste im Element "Labels", ID-Prefix ist "l"</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="LabelListType">
+    <annotation>
+      <documentation>Liste von Beschriftungen oder Schildern</documentation>
+    </annotation>
+    <sequence>
+      <element name="Label" type="mcp:LabelType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="FileType">
+    <annotation>
+      <documentation>Datei: der Inhalt kann als Text oder Base64-kodierte binärdaten direkt eingebunden werden oder es
+wird auf eine externe Datei über ihren Namen verwiesen.
+      </documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:PartType">
+        <sequence>
+          <choice>
+            <element name="SourceFileName" type="string">
+              <annotation>
+                <documentation>Name einer Datei, die in einem extern festzulegenden Verzeichnis eines vom Client
+erreichbaren Dateisystems abgelegt ist.
+                </documentation>
+              </annotation>
+            </element>
+            <element name="Text" type="string">
+              <annotation>
+                <documentation>Datei-Inhalt als Text</documentation>
+              </annotation>
+            </element>
+            <element name="Binary" type="base64Binary">
+              <annotation>
+                <documentation>binärer Datei-Inhalt Base64-kodiert</documentation>
+              </annotation>
+            </element>
+          </choice>
+          <element name="TargetFileName" type="string">
+            <annotation>
+              <documentation>auf dem Zielsystem (DUT) zu verwendender Dateiname</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FirmwareType">
+    <annotation>
+      <documentation>Firmware, ID-Prefix = f</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:FileType">
+        <sequence>
+          <element name="Version" type="mcp:FirmwareVersionType">
+            <annotation>
+              <documentation>Version der Datei</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AttributeFileListType">
+    <sequence>
+      <element name="AttributeFile" type="mcp:AttributeFileType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="AttributeFileType">
+    <annotation>
+      <documentation>Konfigurationsdatei, ID-Prefix = a</documentation>
+    </annotation>
+    <complexContent>
+      <extension base="mcp:FileType">
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AttributeFileAssignListType">
+    <annotation>
+      <documentation>Liste von einem Gerät zugeordneten Konfigurationsdateien</documentation>
+    </annotation>
+    <sequence>
+      <element name="AttributeFile" type="mcp:AttributeFileAssignType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="AttributeFileAssignType">
+    <annotation>
+      <documentation>Zuordnung einer Konfigurationsdatei zu einem Gerät o.ä.</documentation>
+    </annotation>
+    <sequence>
+      <element name="AttributeFileID" type="IDREF">
+        <annotation>
+          <documentation>Verweis auf einen Eintrag der Liste im Element "AttributeFiles", ID-Prefix ist "a".
+
+-> In Teamcenter ist am Gerät unterhalb von "Represented By" (Aussage Entwicklung) oder auch in der obersten Ebene
+(Realität) ein Eintrag "KEYPAD_ATTRIBUTE" oder "disable DO blinking" angehangen, welcher unter "Named References" die
+Konfigurationsdatei enthält. Der Zieldateiname "keypad_attr.ini" bzw. "mcp_blinking_dos.ini" ist Expertenwissen und wird
+von der Entwicklung mitgeteilt. Gleiches gilt für eventuelle weitere Konfigurationsdateien.
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PinListType">
+    <annotation>
+      <documentation>Liste von Pins eines Steckverbinders</documentation>
+    </annotation>
+    <sequence>
+      <element name="Pin" type="mcp:PinType" minOccurs="1" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+  <complexType name="ModuleCategoryListType">
+    <annotation>
+      <documentation>Liste von Modulkategorien</documentation>
+    </annotation>
+    <sequence>
+      <element name="Category" type="mcp:ModuleCategoryType" minOccurs="0" maxOccurs="unbounded"></element>
+    </sequence>
+  </complexType>
+</schema>

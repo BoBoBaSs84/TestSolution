@@ -18,7 +18,7 @@ namespace ValidationXSDXML
         {
             var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).LocalPath;
             XmlSchemaSet schema = new();
-            schema.Add("", path + "\\" + p_strXSD);
+            schema.Add(null, path + "\\" + p_strXSD);
 
             XmlReader rd = XmlReader.Create(path + "\\" + p_strXML);
             XDocument doc = XDocument.Load(rd);
