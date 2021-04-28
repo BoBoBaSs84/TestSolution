@@ -17,6 +17,7 @@ namespace ValidationXSDXML
             _serializer = new XmlSerializer(typeof(T));
         }
         #endregion
+
         #region Public Methods
         /// <summary>
         /// Deserialize the supplied XML into an object
