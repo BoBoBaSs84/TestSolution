@@ -29,7 +29,7 @@ namespace ValidationXSDXML
                 Console.WriteLine("{0}", e.Message, o.ToString());
                 errors = true;
             });
-            Console.WriteLine(p_strXML + " {0} ", errors ? $"is not valid compared with {p_strXSD}" : $"is valid compared with {p_strXSD}{Environment.NewLine}");
+            Console.WriteLine(p_strXML + " {0} ", errors ? $"{Environment.NewLine}is not valid compared with {p_strXSD}{Environment.NewLine}" : $"{Environment.NewLine}is valid compared with {p_strXSD}{Environment.NewLine}");
         }
     }
 }

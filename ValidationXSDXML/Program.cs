@@ -129,20 +129,28 @@ namespace ValidationXSDXML
             {
                 Console.WriteLine($"{device.ID}|{device.Name}|{device.ItemNumber}|{device.Revision}|{device.MLFB}|{device.InternalName}");
             }
-            
+
+            Thread.Sleep(timerwait);
+
             Console.WriteLine($"{Environment.NewLine}The ID is now numeric only, let's see if the validation check fails.{Environment.NewLine}");
 
             Thread.Sleep(timerwait + timerwait);
 
             string NewXml = CXmlSerializerDeserializer<DataType>.ToXml(dataType);
-            
-            bool valid = CheckXmlViaXsd(p_strXsd, NewXml);
-
-            Console.WriteLine($"Validation check is: {valid}");
+            var path = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).LocalPath;
+            string NewMcpXml = $"NewMcpXml.xml";
+            StreamWriter writer = new($"{path}\\{NewMcpXml}");
+            writer.WriteLine(NewXml);
+            writer.Close();
 
             Thread.Sleep(timerwait);
 
-            Console.WriteLine($"Easy, wasnt it? :)");
+            CValidation cValidation = new();
+            cValidation.Validate(p_strXsd, NewMcpXml);
+
+            Thread.Sleep(timerwait);
+
+            Console.WriteLine($"{Environment.NewLine}Easy, wasnt it? :)");
             
             Thread.Sleep(timerwait);
         }
