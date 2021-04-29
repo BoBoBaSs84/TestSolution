@@ -44,6 +44,7 @@ namespace ValidationXSDXML
                 //Console.WriteLine("specify the xml file (blub.xml) ... better start with the parameter -?");
                 //return;
             }
+            
             bool valid = CheckXmlViaXsd(Xsdfile, Xmlfile);
             if(valid == true)
             {
@@ -51,7 +52,7 @@ namespace ValidationXSDXML
                 XmlReader rd = XmlReader.Create(path + "\\" + Xmlfile);
                 XDocument doc = XDocument.Load(rd);
 
-                DesrializeXmlToArray(doc.ToString());
+                DesrializeXmlToArray(doc.ToString(), Xsdfile);
             }
         }
         /// <summary>
@@ -77,8 +78,9 @@ namespace ValidationXSDXML
         /// Deserialisieren des XML in das passende Objekt und ein bisschen Konsolen-Prosa Array[]...
         /// </summary>
         /// <param name="p_strXml"></param>
-        private static void DesrializeXmlToArray(string p_strXml)
+        private static void DesrializeXmlToArray(string p_strXml, string p_strXsd)
         {
+            int timerwait = 3000;
             //putting them xml into lovely defined objects...
             DataType dataType = CXmlSerializerDeserializer<DataType>.ToObject(p_strXml);
             //array to col...
@@ -87,21 +89,62 @@ namespace ValidationXSDXML
             //let's do some prosa....
             Console.WriteLine($"Reading some devices from xml ...{Environment.NewLine}");
 
-            Thread.Sleep(1500);
+            Thread.Sleep(timerwait);
+
+            foreach (DeviceType device in deviceTypes)
+            {
+                Console.WriteLine($"{device.ID}|{device.Name}|{device.ItemNumber}|{device.Revision}|{device.MLFB}|{device.InternalName}");
+               
+            }
+            Console.WriteLine($"Count: {deviceTypes.Count}");
+
+            Thread.Sleep(timerwait);
+
+            Console.WriteLine($"{Environment.NewLine}Want some panels too?{Environment.NewLine}");
+            
+            Thread.Sleep(timerwait);
+            
+            foreach (PanelType panel in panelTypes)
+            {
+                Console.WriteLine($"{panel.ID}|{panel.Name}|{panel.ItemNumber}|{panel.Revision}|{panel.Instance}|{panel.Segment}");
+            }
+            Console.WriteLine($"Count: {panelTypes.Count}");
+
+            Thread.Sleep(timerwait);
+            
+            Console.WriteLine($"{Environment.NewLine}Let's manipulate ... shall we?{Environment.NewLine}");
+            
+            Thread.Sleep(timerwait);
+
+            Console.WriteLine($"The XSD says that the ID needs to have a prefix that is not a numeric value ... let's see if that is true for devices.{Environment.NewLine}");
+
+            Thread.Sleep(timerwait + timerwait);
+
+            foreach(DeviceType device in deviceTypes)
+            {
+                device.ID = device.ID.Substring(1);
+            }
 
             foreach (DeviceType device in deviceTypes)
             {
                 Console.WriteLine($"{device.ID}|{device.Name}|{device.ItemNumber}|{device.Revision}|{device.MLFB}|{device.InternalName}");
             }
             
-            Console.WriteLine($"{Environment.NewLine}Want some panels too?{Environment.NewLine}");
+            Console.WriteLine($"{Environment.NewLine}The ID is now numeric only, let's see if the validation check fails.{Environment.NewLine}");
+
+            Thread.Sleep(timerwait + timerwait);
+
+            string NewXml = CXmlSerializerDeserializer<DataType>.ToXml(dataType);
             
-            Thread.Sleep(1500);
+            bool valid = CheckXmlViaXsd(p_strXsd, NewXml);
+
+            Console.WriteLine($"Validation check is: {valid}");
+
+            Thread.Sleep(timerwait);
+
+            Console.WriteLine($"Easy, wasnt it? :)");
             
-            foreach (PanelType panel in panelTypes)
-            {
-                Console.WriteLine($"{panel.ID}|{panel.Name}|{panel.ItemNumber}|{panel.Revision}|{panel.Instance}|{panel.Segment}");
-            }
+            Thread.Sleep(timerwait);
         }
     }
 }
