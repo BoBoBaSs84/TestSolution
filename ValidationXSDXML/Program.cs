@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -76,11 +78,27 @@ namespace ValidationXSDXML
         /// <param name="p_strXml"></param>
         private static void DesrializeXmlToArray(string p_strXml)
         {
+            //putting them xml into lovely defined objects...
             Array.DataType dataType = CXmlSerializerDeserializer<Array.DataType>.ToObject(p_strXml);
-            Array.DeviceType deviceType = dataType.Devices[0];
-
+            //array to col...
+            ICollection<Array.DeviceType> deviceTypes = dataType.Devices.ToList();
+            ICollection<Array.PanelType> panelTypes = dataType.Panels.ToList();
+            //let's do some prosa....
+            Console.WriteLine($"Reading some devices from xml ...{Environment.NewLine}");
             
-            Console.WriteLine($"{deviceType.ID}, {deviceType.MLFB}, {deviceType.Name}, {deviceType.FirmwareID}");
+            foreach (Array.DeviceType device in deviceTypes)
+            {
+                Console.WriteLine($"{device.ID}, {device.Name}, {device.ItemNumber}, {device.Revision}, {device.MLFB}, {device.InternalName}");
+            }
+            
+            Console.WriteLine($"{Environment.NewLine}Want some panels too?{Environment.NewLine}");
+            
+            Thread.Sleep(3000);
+            
+            foreach (Array.PanelType panel in panelTypes)
+            {
+                Console.WriteLine($"{panel.ID}, {panel.Name}, {panel.ItemNumber}, {panel.Revision}, {panel.Instance}, {panel.Segment}");
+            }
         }
         private static void DesrializeXmlToList(string p_strXml)
         {
