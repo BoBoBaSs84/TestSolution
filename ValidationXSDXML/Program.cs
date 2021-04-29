@@ -28,20 +28,21 @@ namespace ValidationXSDXML
 
         private void OnExecute()
         {
-            //DEBUG
-            //let's set it hard ... for debuging purpose and shit...
-            Xsdfile = "MCP.xsd";
-            Xmlfile = "MCP.xml";
-
             if (Xsdfile == null)
             {
-                Console.WriteLine("specify the xsd file (bla.xsd) ... better start with the parameter -?");
-                return;
+                //DEBUG
+                //let's set it hard ... for debuging purpose and shit...
+                Xsdfile = "MCP.xsd";
+                //Console.WriteLine("specify the xsd file (bla.xsd) ... better start with the parameter -?");
+                //return;
             }
             if (Xmlfile == null)
             {
-                Console.WriteLine("specify the xml file (blub.xml) ... better start with the parameter -?");
-                return;
+                //DEBUG
+                //let's set it hard ... for debuging purpose and shit...
+                Xmlfile = "MCP.xml";
+                //Console.WriteLine("specify the xml file (blub.xml) ... better start with the parameter -?");
+                //return;
             }
             bool valid = CheckXmlViaXsd(Xsdfile, Xmlfile);
             if(valid == true)
@@ -79,36 +80,28 @@ namespace ValidationXSDXML
         private static void DesrializeXmlToArray(string p_strXml)
         {
             //putting them xml into lovely defined objects...
-            Array.DataType dataType = CXmlSerializerDeserializer<Array.DataType>.ToObject(p_strXml);
+            DataType dataType = CXmlSerializerDeserializer<DataType>.ToObject(p_strXml);
             //array to col...
-            ICollection<Array.DeviceType> deviceTypes = dataType.Devices.ToList();
-            ICollection<Array.PanelType> panelTypes = dataType.Panels.ToList();
+            ICollection<DeviceType> deviceTypes = dataType.Devices.ToList();
+            ICollection<PanelType> panelTypes = dataType.Panels.ToList();
             //let's do some prosa....
             Console.WriteLine($"Reading some devices from xml ...{Environment.NewLine}");
-            
-            foreach (Array.DeviceType device in deviceTypes)
+
+            Thread.Sleep(1500);
+
+            foreach (DeviceType device in deviceTypes)
             {
-                Console.WriteLine($"{device.ID}, {device.Name}, {device.ItemNumber}, {device.Revision}, {device.MLFB}, {device.InternalName}");
+                Console.WriteLine($"{device.ID}|{device.Name}|{device.ItemNumber}|{device.Revision}|{device.MLFB}|{device.InternalName}");
             }
             
             Console.WriteLine($"{Environment.NewLine}Want some panels too?{Environment.NewLine}");
             
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             
-            foreach (Array.PanelType panel in panelTypes)
+            foreach (PanelType panel in panelTypes)
             {
-                Console.WriteLine($"{panel.ID}, {panel.Name}, {panel.ItemNumber}, {panel.Revision}, {panel.Instance}, {panel.Segment}");
+                Console.WriteLine($"{panel.ID}|{panel.Name}|{panel.ItemNumber}|{panel.Revision}|{panel.Instance}|{panel.Segment}");
             }
-        }
-        private static void DesrializeXmlToList(string p_strXml)
-        {
-            List.DataType dataType = CXmlSerializerDeserializer<List.DataType>.ToObject(p_strXml);
-            List<List.DeviceType> deviceTypes = dataType.Devices;
-            
-            foreach(List.DeviceType device in deviceTypes)
-            {
-                Console.WriteLine($"{device.ID}, {device.Name}, {device.ItemNumber}, {device.Revision}, {device.MLFB}, {device.InternalName}");
-            }            
         }
     }
 }
