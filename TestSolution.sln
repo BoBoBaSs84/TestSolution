@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationXSDXML", "Validat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieceOfTime.ConsoleApp", "PieceOfTime.ConsoleApp\PieceOfTime.ConsoleApp.csproj", "{2C873F5E-47DA-4296-8055-54A357F1A062}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlConsoleApp", "XmlConsoleApp\XmlConsoleApp.csproj", "{5E049E4D-2DB9-4E8B-A471-6A8723290204}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{2C873F5E-47DA-4296-8055-54A357F1A062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C873F5E-47DA-4296-8055-54A357F1A062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C873F5E-47DA-4296-8055-54A357F1A062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E049E4D-2DB9-4E8B-A471-6A8723290204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E049E4D-2DB9-4E8B-A471-6A8723290204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E049E4D-2DB9-4E8B-A471-6A8723290204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E049E4D-2DB9-4E8B-A471-6A8723290204}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
